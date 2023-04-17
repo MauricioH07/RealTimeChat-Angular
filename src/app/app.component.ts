@@ -6,14 +6,16 @@ import 'firebase/compat/database'
 import { environment } from 'src/environments/environment';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAwRJvVNBwz8oePAusIjgT6Rc8W3d44BqM",
-  authDomain: "softcode-7a4bc.firebaseapp.com",
-  projectId: "softcode-7a4bc",
-  storageBucket: "softcode-7a4bc.appspot.com",
-  messagingSenderId: "593486619974",
-  appId: "1:593486619974:web:7405fddbc9f55da8b4f147",
-  measurementId: "G-QST249H6BJ"
+  apiKey: "AIzaSyBV8VcRO1HmsDQD-o_zStzf8JgIFm2roeQ",
+  authDomain: "softcode-dev.firebaseapp.com",
+  databaseURL: "https://softcode-dev-default-rtdb.firebaseio.com",
+  projectId: "softcode-dev",
+  storageBucket: "softcode-dev.appspot.com",
+  messagingSenderId: "934030730001",
+  appId: "1:934030730001:web:a2c6cb5f611391aac262b0",
+  measurementId: "G-26JX14SKPX"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
