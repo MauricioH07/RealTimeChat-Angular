@@ -4,10 +4,12 @@ import { RoomlistComponent } from './roomlist/roomlist.component';
 import { LoginComponent } from './login/login.component';
 import { AddroomComponent } from './addroom/addroom.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
+import { LiveRoomComponent } from './pages/live-room/live-room.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'roomlist', component: RoomlistComponent},
+  // {path: 'roomlist', component: RoomlistComponent},
+  {path: 'roomlist', component: LiveRoomComponent},
   {path: 'addroom', component: AddroomComponent},
   {path: 'chatroom/:roomname', component: ChatroomComponent},
   {path: '',

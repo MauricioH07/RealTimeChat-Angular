@@ -9,6 +9,8 @@
 //     databaseURL: "https://angularchat-4e1fb.firevaseio.com"
 // };
 export const environment = {
-    production: true
+    production: true,
+    path:'/chats',
+    firebase:{},
   };
   

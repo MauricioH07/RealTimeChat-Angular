@@ -25,6 +25,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DatePipe } from '@angular/common';
+import { MessageComponent } from './components/message/message.component';
+import { LiveRoomComponent } from './pages/live-room/live-room.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { DatePipe } from '@angular/common';
     LoginComponent,
     RoomlistComponent,
     AddroomComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    MessageComponent,
+    LiveRoomComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,7 @@ import { DatePipe } from '@angular/common';
     MatSortModule,
     MatSnackBarModule,
     MatSidenavModule,
-    // AngularFireModule.initializeApp(environment, 'chat-firebase'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireStorageModule
