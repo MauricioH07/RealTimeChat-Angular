@@ -26,10 +26,8 @@
     "firebase": "^9.9.3",
     "moment": "^2.29.4",
     "ngx-dropzone": "^3.1.0",
-    "ngx-emoji-picker": "^0.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "unicode-emoji-picker": "^2.0.0-next.1",
     "uuid": "^9.0.0",
     "zone.js": "~0.12.0"
   },
