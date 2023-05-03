@@ -4,16 +4,16 @@ import { RoomlistComponent } from './roomlist/roomlist.component';
 import { LoginComponent } from './login/login.component';
 import { AddroomComponent } from './addroom/addroom.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
-import { LiveRoomComponent } from './pages/live-room/live-room.component';
+import { SingleLayoutComponent } from './single-layout/single-layout.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'roomlist', component: RoomlistComponent},
-  // {path: 'roomlist', component: LiveRoomComponent},
+  {path: 'single-layout', component: SingleLayoutComponent},
   {path: 'addroom', component: AddroomComponent},
   {path: 'chatroom/:roomname', component: ChatroomComponent},
   {path: '',
-    redirectTo:'/login',
+    redirectTo:'/single-layout',
     pathMatch: 'full'
 }
 ];

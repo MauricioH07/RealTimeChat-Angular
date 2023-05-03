@@ -7,6 +7,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 // import { environment } from 'src/environment/environment';
 import { environment } from '../environments/environment';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -33,6 +35,7 @@ import { DropzoneComponent } from './components/dropzone/dropzone.component';
 import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji'
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { SingleLayoutComponent } from './single-layout/single-layout.component';
 
 
 
@@ -46,6 +49,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MessageComponent,
     LiveRoomComponent,
     DropzoneComponent,
+    SingleLayoutComponent,
     
   ],
   imports: [
@@ -70,6 +74,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     NgxDropzoneModule,
     EmojiModule,
     PickerModule,
+    HttpClientModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
