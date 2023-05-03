@@ -1,0 +1,121 @@
+<div class="example-container mat-elevation-z8 ">
+  <mat-drawer-container class="drawer-container">
+
+    <!-- <mat-drawer mode="side" opened class="left-drawer"> -->
+      <!-- <div class="usersDiv">
+        <div class="users-pane">
+          <mat-card class="users-card">
+            <button type="button" mat-button matSuffix mat-icon-button aria-label="Exit" (click)="exitChat()">
+              <mat-icon>logout</mat-icon>
+            </button>
+          </mat-card>
+          <mat-card class="users-card" *ngFor="let user of users">
+            <mat-icon>person</mat-icon> <span class="username">{{user.nickname}}</span>
+          </mat-card>
+        </div>
+      </div> -->
+
+      <!-- <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+        <ngx-dropzone-label>
+          <div>
+            <h2>My custom dropzone</h2>
+          </div>
+        </ngx-dropzone-label>
+        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
+      </div> -->
+      <!-- <ngx-dropzone-preview>
+        <ng-template ngx-dropzone-preview-template let-file>
+          <img *ngIf="file.type.includes('image')" [src]="file.dataURL" class="dropzone-image" />
+          <div *ngIf="!file.type.includes('image')" class="dropzone-text">
+            Arrastra y suelta una imagen aquí
+          </div>
+        </ng-template>
+      </ngx-dropzone-preview> -->
+
+
+    <!-- </mat-drawer> -->
+
+    <mat-drawer-content class="chat-pane">
+      <div class="chatContent">
+        <div class="chat-message" id="dragzone" (dragover)="handleDragOver($event)" (drop)="handleFileSelect($event)">
+          <div #chatcontent [scrollTop]="scrolltop" class="chat-content">
+            <div class="message-box" *ngFor="let chat of chats">
+              <div class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
+                <span class="chat-content-center">{{chat.message}}</span>
+              </div>
+              <ng-template #message>
+
+
+                <!-- <div class="cardDrag dragzone" *ngIf="showDragZone === false" style="visibility: hidden;"> -->
+                <form [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
+                  <div class="cardDrag dragzone" *ngIf="showDragZone">
+                    <mat-icon class="close-icon" (click)="closeContainer()">close</mat-icon>
+                    <mat-card class="principalCard">
+                      <mat-card-header class="cardHeaders">
+                        <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
+                          <ngx-dropzone-label>
+                            <div>
+                              <h2>Drag the file here</h2>
+                            </div>
+                          </ngx-dropzone-label>
+                          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" class="containerImageDragZone"
+                            *ngFor="let f of files" [file]="f" [removable]="true">
+                            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                          </ngx-dropzone-image-preview>
+                        </div>
+                      </mat-card-header>
+
+                      <mat-card-actions class="btnDragzoneSend">
+                        <button mat-raised-button color="primary" type="submit">SEND</button>
+                      </mat-card-actions>
+                    </mat-card>
+                  </div>
+                </form>
+                  <!-- </div> -->
+
+
+                  <div class="right-bubble"
+                    [ngClass]="{'right-bubble': chat.nickname === nickname, 'left-bubble': chat.nickname !== nickname}">
+
+                    <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == '' ">Me</span>
+                    <span class="msg-name" *ngIf="chat.nickname !== nickname && urlImage == '' ">{{chat.nickname}}</span>
+                    <ng-container *ngIf="chat?.urlImage !== undefined">
+                      <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == 'image'">Me</span>
+                      <span class="msg-name" *ngIf="chat.nickname !== nickname && urlImage == 'image'">{{chat.nickname}}</span>
+                      <img class="imgSend" [src]="chat?.urlImage" draggable="true">
+                    </ng-container>
+                    <p *ngIf="isTyping">Usuario está escribiendo...</p>
+                    <p class="message-chat" > {{ chat.message }} </p>
+                    <!-- <ngx-emoji [emoji]="selectedEmoji" [size]="16"></ngx-emoji> -->
+                  </div>
+              </ng-template>
+            </div>
+          </div>
+
+          <footer class="sticky-footer">
+            <form class="message-form" [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
+              <mat-form-field class="message-form-field">
+                <!-- <emoji-mart [set]="emojiset" (emojiClick)="onEmojiSelect($event)"></emoji-mart> -->
+                <input class="inputMessage" matInput placeholder="Enter message here" formControlName="message"
+                  [errorStateMatcher]="matcher" />
+                <mat-error>
+                  <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
+                    message</span>
+                </mat-error>
+                <input class="file-input" type="file" (change)="upload($event)" dropzone="copy" accept=".png,.jpg" />
+                <!-- <emoji-mart (emojiSelect)="select($event)"></emoji-mart> -->
+                <button type="submit" class="btnSubmit" [disabled]="!chatForm.valid" mat-button matSuffix
+                  mat-icon-button aria-label="Send">
+                  <mat-icon>send</mat-icon>
+                </button>
+              </mat-form-field>
+            </form>
+          </footer>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+

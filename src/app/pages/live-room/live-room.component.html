@@ -1,0 +1,19 @@
+<div class="container-fluid py-3">
+    <div class="row mt-4">
+        <app-message class="col-12" *ngFor="let item of chatList" [itemChat]="item" />
+    </div>
+
+    <div class="row fixed-bottom justify-content-center">
+        <form [formGroup]="frmChat" class="form-inline col-6 px-3">
+            <mat-form-field class="col-12">
+                <mat-label>Mensaje...</mat-label>
+                <input matInput type="text" formControlName="message">
+                <button matSuffix mat-icon-button aria-label="Clear" (click)="sendMessage()">
+                    <mat-icon>send</mat-icon>
+                </button>
+            </mat-form-field>
+            
+            <input type="file" (change)="upload($event)" accept=".png,.jpg" /> 
+        </form>
+    </div>
+</div>

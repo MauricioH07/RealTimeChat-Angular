@@ -1,0 +1,8 @@
+<div class="alert alert-info" role="alert">
+    <ng-container *ngIf="itemChat?.urlImage !== undefined">
+        <img [src]="itemChat?.urlImage">
+    </ng-container>
+
+    <p class="message-chat"> {{ itemChat.message }} </p>
+
+</div>
