@@ -6,7 +6,7 @@ def argsMap = [
     workDir: 'swiftfront',
     dockerWorkDir: '.',
     dockerfile: 'Dockerfile',
-    imageName: 'iris/apps/swiftair',
+    imageName: 'iris/apps/swiftairfront',
     version: "23.04.00-SNAPSHOT",
     dockerHubSitesByBranch: [
             "server/dev": ["DESA"],
