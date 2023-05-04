@@ -21,7 +21,7 @@ buildPipeline () {
 
     if ( argsMap.branch.startsWith("server")) {
         def parts = argsMap.branch.split("/")
-        argsMap.put('buildArg', '--configuration=' + parts[-1].toLowerCase())
+        argsMap.put('buildArg', 'EXTRA_CONFIG=--configuration=' + parts[-1].toLowerCase())
     }
 
     buildAngularApp(argsMap)
