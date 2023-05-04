@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from "../../environments/environment";
 
 @Component({
   selector: 'app-single-layout',
@@ -43,4 +44,6 @@ export class SingleLayoutComponent implements OnInit {
     );
 
   }
+
+  protected readonly environment = environment;
 }

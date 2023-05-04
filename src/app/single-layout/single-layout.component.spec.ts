@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SingleLayoutComponent } from './single-layout.component';
+import { environment } from "../../environments/environment";
 
 describe('SingleLayoutComponent', () => {
   let component: SingleLayoutComponent;
