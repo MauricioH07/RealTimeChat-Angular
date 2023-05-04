@@ -13,7 +13,7 @@ def argsMap = [
             "server/prod": ["PROD"]
     ],
     deployStacksByBranch: [
-            "server/dev/ci": ["swiftair"]
+            "server/dev/ext": ["swiftair"]
     ]
 ]
 
