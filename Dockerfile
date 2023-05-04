@@ -1,12 +1,13 @@
 # Compile stage
 # docker build -t iris/apps/swiftfront:CI -f Dockerfile .
-FROM node:16.14-alpine AS build
+FROM node:18.15-alpine AS build
 
+ARG EXTRA_CONFIG=
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN node_modules/.bin/ng build 
+RUN node_modules/.bin/ng build $EXTRA_CONFIG
 
 # Generate container stage
 FROM nginx:alpine

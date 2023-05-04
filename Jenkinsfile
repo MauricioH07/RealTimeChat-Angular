@@ -9,16 +9,20 @@ def argsMap = [
     imageName: 'iris/apps/swiftair',
     version: "23.04.00-SNAPSHOT",
     dockerHubSitesByBranch: [
-            "master": ["DESA"],
             "server/dev": ["DESA"],
             "server/prod": ["PROD"]
     ],
     deployStacksByBranch: [
-            "master": ["swiftair"]
+            "server/dev/ci": ["swiftair"]
     ]
 ]
 
 buildPipeline () {
+
+    if ( argsMap.branch.startsWith("server")) {
+        def parts = argsMap.branch.split("/")
+        argsMap.put('buildArg', '--configuration=' + parts[-1].toLowerCase())
+    }
+
     buildAngularApp(argsMap)
 }
-
