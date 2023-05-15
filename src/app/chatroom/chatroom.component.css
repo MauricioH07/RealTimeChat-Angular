@@ -88,13 +88,66 @@
   .mat-mdc-text-field-wrapper{
     height: 54px!important;
     position: absolute;
+    align-items: center;
+  }
+
+  .mat-mdc-form-field-infix{
+    display: flex;
+    /* justify-content: space-between; */
+    display: flex;
+  }
+
+  .boxFile {
+    cursor: pointer;
+    display: inline-flex;
+  }
+
+  .boxEmoji {
+    width: 33px;
+    display: inline-block;
+  }
+
+  .boxClose {
+    cursor: pointer;
+    width: 28px;
+    display: inline-block;
+  }
+
+  .closeEmoji{
+    height: 19px;
+  }
+
+  .btnEmoji{
+    width: 33px!important;
+    background: transparent;
+  }
+
+  .emoji-mart-scroll{
+    height: 200px;
+  }
+
+  .emoji-mart{
+    width: 100%;
+    max-height: 435px;
+  }
+  
+
+  .boxMessage {
+    display: inline-block;
+    width: 85%;
   }
   
   .message-form-field {
     width: 100%;
     height: 75px;
+    display:block
     /* position: absolute;
     /* margin: 0 4% 0 2%; */
+  }
+
+  .inputMessage {
+    background: white;
+    border-radius: 8px;
   }
   
   .message-box {
@@ -221,6 +274,7 @@ height: 0px!important;
   }
   
   .file-input {
+    cursor: pointer;
     width: 20%;
     float: left;
     height: 24px;
@@ -250,7 +304,7 @@ height: 0px!important;
     background-image: url('../../assets/images/upload.png');
     background-repeat: no-repeat;
     background-position: 9px initial;
-    background-size: 20px;
+    background-size: 25px;
     display: flex;
     align-items: center;
     width: 28px;
