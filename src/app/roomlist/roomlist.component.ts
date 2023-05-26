@@ -40,10 +40,13 @@ export class RoomlistComponent implements OnInit {
     private db: AngularFirestore) {
     this.nickname = localStorage.getItem('nickname');
     const a = this.db.collection('rooms/').get();
+    console.log("Andamos aca 0", a)
     a.forEach(e => {
+      console.log("Andamos aca")
       this.rooms = [];
       e.forEach(f => {
         this.rooms.push(f.data());
+        console.log(this.rooms)
         this.isLoadingResults = false;
 
       })

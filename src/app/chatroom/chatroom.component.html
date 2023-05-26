@@ -1,7 +1,7 @@
 <div class="example-container mat-elevation-z8 ">
   <mat-drawer-container class="drawer-container">
 
-    <!-- <mat-drawer mode="side" opened class="left-drawer"> -->
+    <mat-drawer mode="side" opened class="left-drawer">
       <!-- <div class="usersDiv">
         <div class="users-pane">
           <mat-card class="users-card">
@@ -33,20 +33,29 @@
           </div>
         </ng-template>
       </ngx-dropzone-preview> -->
-
-
-    <!-- </mat-drawer> -->
+    </mat-drawer>
 
     <mat-drawer-content class="chat-pane">
       <div class="chatContent">
         <div class="chat-message" id="dragzone" (dragover)="handleDragOver($event)" (drop)="handleFileSelect($event)">
           <div #chatcontent [scrollTop]="scrolltop" class="chat-content">
-            <div class="message-box" *ngFor="let chat of chats">
-              <div class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
+            <div>
+              <mat-icon class="search-icon" (click)="openSearch()">search</mat-icon>
+              <div class="boxClose" *ngIf="showSearch">
+                <mat-icon class="close-icon closeSearch" (click)="closeSearch()">close</mat-icon>
+              </div>
+              <!-- Buscador de palabras -->
+              <div *ngIf="search">
+                <input type="text" [(ngModel)]="palabraBuscada" placeholder="Buscar palabra">
+                <button (click)="buscarPalabra()">Buscar</button>
+              </div>
+
+            </div>
+            <div class="message-box" *ngFor="let chat of chats" #chatPanel>
+              <div #chatWord class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
                 <span class="chat-content-center">{{chat.message}}</span>
               </div>
               <ng-template #message>
-
 
                 <!-- <div class="cardDrag dragzone" *ngIf="showDragZone === false" style="visibility: hidden;"> -->
                 <form [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
@@ -73,39 +82,47 @@
                     </mat-card>
                   </div>
                 </form>
-                  <!-- </div> -->
+                <!-- </div> -->
 
 
-                  <div class="right-bubble"
-                    [ngClass]="{'right-bubble': chat.nickname === nickname, 'left-bubble': chat.nickname !== nickname}">
+                <div class="right-bubble"
+                  [ngClass]="{'right-bubble': chat.nickname === nickname, 'left-bubble': chat.nickname !== nickname}">
 
-                    <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == '' ">Me</span>
-                    <span class="msg-name" *ngIf="chat.nickname !== nickname && urlImage == '' ">{{chat.nickname}}</span>
-                    <ng-container *ngIf="chat?.urlImage !== undefined">
-                      <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == 'image'">Me</span>
-                      <span class="msg-name" *ngIf="chat.nickname !== nickname && urlImage == 'image'">{{chat.nickname}}</span>
-                      <img class="imgSend" [src]="chat?.urlImage" draggable="true">
-                    </ng-container>
-                    <p *ngIf="isTyping">Usuario está escribiendo...</p>
-                    <p class="message-chat" > {{ chat.message }} </p>
-                    <!-- <ngx-emoji [emoji]="selectedEmoji" [size]="16"></ngx-emoji> -->
-                  </div>
+                  <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == '' ">Me</span>
+                  <span class="msg-name" *ngIf="chat.nickname !== nickname && urlImage == '' ">{{chat.nickname}}</span>
+                  <ng-container *ngIf="chat?.urlImage !== undefined">
+                    <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == 'image'">Me</span>
+                    <span class="msg-name"
+                      *ngIf="chat.nickname !== nickname && urlImage == 'image'">{{chat.nickname}}</span>
+                    <img class="imgSend" [src]="chat?.urlImage" draggable="true">
+                  </ng-container>
+                  <!-- <div *ngIf="imagePast">
+                    <img class="imgSend" [src]="pasteImageSrc" alt="Pasted Image">
+                  </div> -->
+                  <p *ngIf="isTyping">Usuario está escribiendo...</p>
+                  <p class="message-chat"> {{ chat.message }} </p>
+                </div>
               </ng-template>
             </div>
           </div>
 
+
           <footer class="sticky-footer">
             <form class="message-form" [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
               <mat-form-field class="message-form-field">
-                <!-- <emoji-mart [set]="emojiset" (emojiClick)="onEmojiSelect($event)"></emoji-mart> -->
-                <input class="inputMessage" matInput placeholder="Enter message here" formControlName="message"
-                  [errorStateMatcher]="matcher" />
+                <app-emojis *ngIf="showEmojiPicker" (emojiSelection)="handleEmojiClick($event)"></app-emojis>
+                <div class="boxClose" *ngIf="showEmojiPicker">
+                  <mat-icon class="close-icon closeEmoji" (click)="closeEmoji()">close</mat-icon>
+                </div>
+                <div class="boxFile"><input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
+                    accept=".png,.jpg" /> </div>
+                <div class="boxEmoji"><a class="btnEmoji" (click)="showEmoji()" type="button">😀</a></div>
+                <div class="boxMessage"><input class="inputMessage" matInput placeholder="Enter message here"
+                    formControlName="message" [errorStateMatcher]="matcher" [value]="emojis.join('')" (paste)="handleImagePaste($event)"/></div>
                 <mat-error>
                   <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
                     message</span>
                 </mat-error>
-                <input class="file-input" type="file" (change)="upload($event)" dropzone="copy" accept=".png,.jpg" />
-                <!-- <emoji-mart (emojiSelect)="select($event)"></emoji-mart> -->
                 <button type="submit" class="btnSubmit" [disabled]="!chatForm.valid" mat-button matSuffix
                   mat-icon-button aria-label="Send">
                   <mat-icon>send</mat-icon>
@@ -118,4 +135,3 @@
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
-

@@ -31,11 +31,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DatePipe } from '@angular/common';
 import { MessageComponent } from './components/message/message.component';
 import { LiveRoomComponent } from './pages/live-room/live-room.component';
-import { DropzoneComponent } from './components/dropzone/dropzone.component';
 import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji'
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SingleLayoutComponent } from './single-layout/single-layout.component';
+import { EmojisComponent } from './components/emojis/emojis.component';
+import { TableHomeComponent } from './home/table-home/table-home.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+
+
 
 
 
@@ -48,8 +53,9 @@ import { SingleLayoutComponent } from './single-layout/single-layout.component';
     ChatroomComponent,
     MessageComponent,
     LiveRoomComponent,
-    DropzoneComponent,
     SingleLayoutComponent,
+    EmojisComponent,
+    TableHomeComponent,
     
   ],
   imports: [
@@ -74,7 +80,9 @@ import { SingleLayoutComponent } from './single-layout/single-layout.component';
     NgxDropzoneModule,
     EmojiModule,
     PickerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
+    
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

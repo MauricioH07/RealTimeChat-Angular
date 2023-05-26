@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SingleLayoutComponent } from './single-layout.component';
+import { EmojisComponent } from './emojis.component';
 
-describe('SingleLayoutComponent', () => {
-  let component: SingleLayoutComponent;
-  let fixture: ComponentFixture<SingleLayoutComponent>;
+describe('EmojisComponent', () => {
+  let component: EmojisComponent;
+  let fixture: ComponentFixture<EmojisComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SingleLayoutComponent ]
+      declarations: [ EmojisComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SingleLayoutComponent);
+    fixture = TestBed.createComponent(EmojisComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

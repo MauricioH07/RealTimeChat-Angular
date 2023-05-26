@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
@@ -11,7 +11,7 @@ import { Message } from 'src/app/models/message';
 import { Chat } from 'src/app/models/chat';
 import * as moment from 'moment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { EmojiEvent } from '@ctrl/ngx-emoji-mart/ngx-emoji'
+import { EmojisService } from '../services/emojis.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -35,7 +35,7 @@ export const snapshotToArray = (snapshot: any) => {
 @Component({
   selector: 'app-chatroom',
   templateUrl: './chatroom.component.html',
-  styleUrls: ['./chatroom.component.css']
+  styleUrls: ['./chatroom.component.css'],
 })
 export class ChatroomComponent implements OnInit {
 
@@ -47,8 +47,16 @@ export class ChatroomComponent implements OnInit {
 
 
   @ViewChild('chatcontent') chatcontent: ElementRef | any;
-  scrolltop?: number | null;
+  @ViewChild('chatPanel') chatPanel: ElementRef | any;
 
+  imagePast = false;
+  pasteImageSrc: string = '';
+  showSearch = false;
+  search = false;
+  emojis: string[] = [];
+  palabraBuscada: string = "";
+  scrolltop?: number | null;
+  showEmojiPicker = false;
   isTyping = false;
   urlImage: any = '';
   files: File[] = [];
@@ -61,7 +69,7 @@ export class ChatroomComponent implements OnInit {
   showDragZone = false;
   collectionUsers: any
   cleanDrop: any;
-  selectedEmoji:any;
+  selectedEmoji: any;
 
   matcher = new MyErrorStateMatcher();
 
@@ -70,7 +78,8 @@ export class ChatroomComponent implements OnInit {
     private formBuilder: FormBuilder,
     public datepipe: DatePipe,
     private fbs: FirebaseService,
-    private db: AngularFirestore) {
+    private db: AngularFirestore,
+    private elementRef: ElementRef) {
 
     // Cargamos los mensajes viejos al entrar en el chat
     this.nickname = localStorage.getItem('nickname');
@@ -103,6 +112,7 @@ export class ChatroomComponent implements OnInit {
   }
 
 
+
   // Mandamos a llamar al metodo apra obtenero todos los mensajes 
   ngOnInit(): void {
     this.getAll()
@@ -115,6 +125,47 @@ export class ChatroomComponent implements OnInit {
     ).subscribe(resp => {
       this.chats = resp;
     });
+  }
+
+  // Abrimos el buscador de palabras
+  openSearch() {
+    this.search = true
+    this.showSearch = true;
+  }
+
+  // Buscamos una palabra en el chat
+  buscarPalabra() {
+    
+    this.chats.forEach(message => {
+ 
+      if ("message" in message) {
+        
+        if (message.message.indexOf(this.palabraBuscada) !== -1) {
+          
+          console.log("La palabra buscada es: ", message.message);
+          this.scrollElementIntoView();
+        }
+      }
+      // message.word = message.message.toLowerCase
+    })
+  }
+
+  // Direccionamos la palabra encontrada a el mensaje mediante scrollIntoView
+  scrollElementIntoView(){
+    const mensajeEncontrado = this.chats.find(message => message.word);
+
+    if(mensajeEncontrado && this.chatPanel && this.chatPanel.nativeElement){
+      mensajeEncontrado.word = true;
+      this.chatPanel.nativeElement.scrollIntoView({ behavior: 'smooth',block: 'center'})
+    }
+  }
+
+
+
+  // Cerramos el buscador de palabra
+  closeSearch() {
+    this.search = false
+    this.showSearch = false
   }
 
   // Envio de mensajes al precionar tecla submit
@@ -130,16 +181,10 @@ export class ChatroomComponent implements OnInit {
         console.log("Si entro al for")
         this.sendImage(this.files[i])
 
-
-        // chat.roomname = this.roomname
         this.urlImage = 'image'
         chat.nickname = this.nickname;
         chat.urlImage = 'image'
-        // chat.date = moment(now).format('YYYY-MM-DD h:mm:ss');
-        // chat.type = 'image';
 
-
-        // this.fbs.saveDataFirebase(data, '/chats');
       }
 
       this.closeContainer()
@@ -168,48 +213,59 @@ export class ChatroomComponent implements OnInit {
     this.chatForm = new FormGroup({
       message: new FormControl('', Validators.required)
     });
+    this.scrollToBottom();
+    this.emojis.splice(0, this.emojis.length)
 
   }
 
-  // Envio de Emojis
-  select(event:any)
-  {
-    console.log(event);
-    this.selectedEmoji = event.emoji;
-    this.pasteHtmlAtCaret("<span>hi</span>");
+  // Metodo para que al mandar mensaje el scroll se vaya hasta abajo 
+  scrollToBottom() {
+    console.log("Scroll TOP")
+    console.log(this.chatcontent.nativeElement.scrollTop)
+    this.chatcontent.nativeElement.scrollTop = this.chatcontent.nativeElement.scrollHeight;
+    console.log("Scroll HTIG")
+    console.log(this.chatcontent.nativeElement.scrollTop)
   }
 
-  
-  pasteHtmlAtCaret(html:any) {
+  // **** Visualizar emojis en input ****
+  handleEmojiClick(emojis: string[] | any) {
+    this.emojis = emojis
+  }
+
+  showEmoji() {
+    this.showEmojiPicker = true;
+  }
+
+  pasteHtmlAtCaret(html: any) {
     var sel, range;
     if (window.getSelection) {
-        // IE9 and non-IE
-        sel = window.getSelection();
-        if (sel?.getRangeAt && sel.rangeCount) {
-            range = sel.getRangeAt(0);
-            range.deleteContents();
+      // IE9 and non-IE
+      sel = window.getSelection();
+      if (sel?.getRangeAt && sel.rangeCount) {
+        range = sel.getRangeAt(0);
+        range.deleteContents();
 
-            // Range.createContextualFragment() would be useful here but is
-            // non-standard and not supported in all browsers (IE9, for one)
-            var el = document.createElement("div");
-            el.innerHTML = html;
-            var frag = document.createDocumentFragment(), node, lastNode;
-            while ( (node = el.firstChild) ) {
-                lastNode = frag.appendChild(node);
-            }
-            range.insertNode(frag);
-            
-            // Preserve the selection
-            if (lastNode) {
-                range = range.cloneRange();
-                range.setStartAfter(lastNode);
-                range.collapse(true);
-                sel.removeAllRanges();
-                sel.addRange(range);
-            }
+        // Range.createContextualFragment() would be useful here but is
+        // non-standard and not supported in all browsers (IE9, for one)
+        var el = document.createElement("div");
+        el.innerHTML = html;
+        var frag = document.createDocumentFragment(), node, lastNode;
+        while ((node = el.firstChild)) {
+          lastNode = frag.appendChild(node);
         }
+        range.insertNode(frag);
+
+        // Preserve the selection
+        if (lastNode) {
+          range = range.cloneRange();
+          range.setStartAfter(lastNode);
+          range.collapse(true);
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      }
     }
-}
+  }
 
 
   // Dropzone para mostrar solo cuando se arrastra imagen o archivos en el
@@ -221,6 +277,39 @@ export class ChatroomComponent implements OnInit {
     } else {
       this.showDragZone = false;
     }
+  }
+
+  handleImagePaste(event: any): void {
+
+    const items = event.clipboardData.items
+
+    for (let i = 0; i < items.length; i++) {
+
+      const item = items[i]
+
+      if (item.type.indexOf('image') !== -1) {
+        const file = item.getAsFile();
+
+        // Mostramos la imagen pegada en el chat
+        this.showPastedImage(file)
+      }
+    }
+
+  }
+
+  showPastedImage(file: File): void {
+    const reader = new FileReader();
+
+    reader.onload = (event: any) => {
+
+      console.log(event.target.result)
+      this.pasteImageSrc = event.target.result;
+      this.imagePast = true;
+      this.sendImage(file)
+    };
+
+
+    reader.readAsDataURL(file);
   }
 
   handleFileSelect(event: DragEvent) {
@@ -242,6 +331,10 @@ export class ChatroomComponent implements OnInit {
     this.files = []
     return this.showDragZone = false
 
+  }
+
+  closeEmoji() {
+    return this.showEmojiPicker = false
   }
 
   sendImage(file: any) {
