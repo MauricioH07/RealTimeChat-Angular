@@ -24,6 +24,7 @@
     "@ctrl/ngx-emoji-mart": "^1.0.6",
     "bootstrap": "^4.6.0",
     "firebase": "^9.9.3",
+    "mammoth": "^1.5.1",
     "moment": "^2.29.4",
     "ngx-dropzone": "^3.1.0",
     "rxjs": "~7.8.0",

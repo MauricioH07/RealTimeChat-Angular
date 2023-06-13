@@ -25,4 +25,47 @@
   .mat-flat-button {
     margin: 5px;
   }
+
+  .divPrinvipal{
+    background: #7E8CAC;
+    width: 100%;
+    height: 100%;
+  }
   
+  .divForm{
+    
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  
+  background: #081F4B;
+  border-radius: 0px 400px 0px 0px;
+  }
+
+  .imgLogo{
+    width: 300px;
+
+
+  }
+
+  .card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+  }
+
+  .card-body{
+    width: 50%;
+  }
+  
+  .inputUser,
+  .inputPass {
+    width: 100%;
+    display: inline-block;
+    background: #1A2F5A;
+    color: white;
+  }

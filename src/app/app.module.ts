@@ -38,8 +38,15 @@ import { SingleLayoutComponent } from './single-layout/single-layout.component';
 import { EmojisComponent } from './components/emojis/emojis.component';
 import { TableHomeComponent } from './home/table-home/table-home.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CardriveComponent } from './components/cardrive/cardrive.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { HotelComponent } from './components/hotel/hotel.component';
+import { BusComponent } from './components/bus/bus.component';
+import { CarComponent } from './components/car/car.component';
+import { FligthComponent } from './components/fligth/fligth.component';
+import { TrainComponent } from './components/train/train.component';
 
 
 
@@ -56,6 +63,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
     SingleLayoutComponent,
     EmojisComponent,
     TableHomeComponent,
+    CardriveComponent,
+    HotelComponent,
+    BusComponent,
+    CarComponent,
+    FligthComponent,
+    TrainComponent,
     
   ],
   imports: [
@@ -81,7 +94,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     EmojiModule,
     PickerModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatTabsModule
     
   ],
   providers: [DatePipe],

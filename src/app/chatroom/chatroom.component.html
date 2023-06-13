@@ -1,41 +1,309 @@
-<div class="example-container mat-elevation-z8 ">
-  <mat-drawer-container class="drawer-container">
+<div class="principal">
 
-    <mat-drawer mode="side" opened class="left-drawer">
-      <!-- <div class="usersDiv">
-        <div class="users-pane">
-          <mat-card class="users-card">
-            <button type="button" mat-button matSuffix mat-icon-button aria-label="Exit" (click)="exitChat()">
-              <mat-icon>logout</mat-icon>
-            </button>
-          </mat-card>
-          <mat-card class="users-card" *ngFor="let user of users">
-            <mat-icon>person</mat-icon> <span class="username">{{user.nickname}}</span>
-          </mat-card>
+
+  <!-- <mat-toolbar class="navbar" color="primary"> -->
+  <div class="navbar">
+
+    <div class="divBack item">
+      <button class="btnBack" (click)="backTableHome()">
+        <span class="material-icons icon">arrow_back</span>
+        <span class="text">Back</span>
+      </button>
+    </div>
+
+    <div class="divCase item">
+      <button class="btnCase">
+        <span class="spanNumber">3</span>
+        <span class="spanCase">Case</span>
+        <span>1247</span>
+      </button>
+    </div>
+
+    <div class="divStatus item">
+      <button class="btnStatus">
+        <span class="spanStatus"><img src="../../assets/images/CircleGreen.png" alt=""></span>
+        <span class="spanArrowRight">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </span>
+      </button>
+    </div>
+
+    <div class="divWorkflow item">
+      <button class="btnWorkflow">
+        <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
+        <span class="spanArrowRight">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </span>
+      </button>
+    </div>
+
+    <div class="divAmadeus item">
+      <button>Rua Amadeus</button>
+    </div>
+
+    <div class="divNewCase item">
+      <button class="btnNewCase">
+        <span class="">New Case</span>
+        <span class="spanNewCase">
+          <mat-icon>add</mat-icon>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- </mat-toolbar> -->
+
+  <div class="services">
+
+    <!-- <div class="passenger"> -->
+
+    <br>
+    <div class="container subPassenger">
+
+      <div class="row" style="width: 100%;">
+
+        <div class="col divTextPass">
+          <h4>Passenger</h4>
         </div>
-      </div> -->
 
-      <!-- <div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
-        <ngx-dropzone-label>
+        <div class="col-7 container line">
+          <!-- <input type="text" style="height: 0px; border: 1px solid black;"> -->
+        </div>
+
+        <div class="col divCaseNumber">
+          <button class="caseNumber">
+            <span>Caso 1247</span>
+            <span><img src="../../assets/images/case.png" alt="" srcset=""></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <br>
+      <div class="row align-items-center">
+
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">EMP</span>
+          <input class="input-empl" type="text" placeholder="Emp">
+        </div>
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">Name</span>
+          <input class="input-empl" type="text" placeholder="Name">
+          <!-- <a href="">User Data</a> -->
+        </div>
+        <!-- <div class="col" style="width: 30%;">
+            <span class="empl-span">EMP</span>
+            <input class="input-empl" type="text" placeholder="Emp">
+          </div> -->
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row addNewPassenger ">
+        <div class="col">
+          <br>
+          <button class="addPassenger" style="background-color: #2196F3;;">Add new passenger
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- </div> -->
+
+    <!-- Select Services -->
+    <div class="container" style="display: block;">
+      <br>
+      <div class="row align-items-center" style="width: 100%;">
+
+        <div class="col divTextPass">
+          <h4>Select service</h4>
+        </div>
+
+        <div class="col-9 line"></div>
+
+      </div>
+
+
+      <mat-tab-group>
+        <div class="row align-items-center">
+
+          <mat-tab>
+            <ng-template mat-tab-label class="mat-tab-label-active">
+              <button class="btnRentCar">
+                <img src="../../assets/images/car_white.png" alt="" style="margin-right: 2px;">
+                Car & drive
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </ng-template>
+            <app-cardrive></app-cardrive>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <button class="btnRentCar2">
+                <img src="../../assets/images/hotel.png" alt="" style="margin-right: 2px;">
+                Hotel
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </ng-template>
+            <app-hotel></app-hotel>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <button class="btnRentCar2">
+                <img src="../../assets/images/bus.png" alt="" style="margin-right: 2px;">
+                 Bus
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </ng-template>
+            <app-bus></app-bus>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <button class="btnRentCar2">
+                <img src="../../assets/images/car_white.png" alt="" style="margin-right: 2px;">
+                Car
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </ng-template>
+            <app-car></app-car>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <button class="btnRentCar2">
+                <img src="../../assets/images/fligth.png" alt="" style="margin-right: 2px;">
+                Fligth
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </ng-template>
+            <app-fligth></app-fligth>
+          </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <button class="btnRentCar2">
+                <img src="../../assets/images/train.png" alt="" style="margin-right: 2px;">
+                Train
+                <mat-icon>keyboard_arrow_right</mat-icon>
+              </button>
+            </ng-template>
+            <app-train></app-train>
+          </mat-tab>
+          <br>
+
+        </div>
+      </mat-tab-group>
+
+
+
+
+    </div>
+
+    <!-- Expenses Codes -->
+    <div class="container">
+      <br>
+      <div class="row align-items-center" style="width: 100%;">
+
+        <div class="col divTextPass">
+          <h4>Expenses Codes</h4>
+        </div>
+        <div class="col-9 line"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <br>
+      <div class="row align-items-center">
+
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">CIA</span>
+          <!-- <input class="input-empl" type="text" placeholder="Emp"> -->
+          <span><img src="../../assets/images/logo_swiftair_table.png" alt=""></span>
+        </div>
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">DEPT</span>
+          <!-- <input class="input-empl" type="text" placeholder="OPE"> -->
+          <span class="spanRespExpenses">OPE</span>
+        </div>
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">Fleet</span>
+          <!-- <input class="input-empl" type="text" placeholder="741"> -->
+          <span class="spanRespExpenses">741</span>
+        </div>
+      </div>
+
+      <div class="row align-items-cente">
+
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">Route</span>
+          <!-- <input class="input-empl" type="text" placeholder="741"> -->
+          <p>R01</p>
+        </div>
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">Base</span>
+          <!-- <input class="input-empl" type="text" placeholder="741"> -->
+          <span class="spanRespExpenses">MAD</span>
+        </div>
+        <div class="col divEmpl" style="width: 28%;">
+          <span class="empl-span">Expenses 1</span>
+          <!-- <input class="input-empl" type="text" placeholder="741"> -->
+          <span class="spanRespExpenses">Relevo</span>
+        </div>
+      </div>
+
+      <div class="row align-items-center" style="width: 66%;">
+        <div class="col-6 divEmpl" style="width: 66%;">
+          <span class="empl-span">Expenses 2</span>
+          <!-- <input class="input-empl" type="text" placeholder="741"> -->
+          <span class="spanRespExpenses">10</span>
+        </div>
+      </div>
+
+      <div style="align-self: self-end;display: flex;">
+        <button type="submit" style="width: 90px;">Save
+          <span class="material-icons" style="position: absolute;"> arrow_forward </span>
+        </button>
+      </div>
+      <!-- <br> -->
+
+      <div class="row" style="width: 100%;background: #F6F7F9;">
+        <div class="col centerCol">
+          <span>Case creator</span>
+        </div>
+        <div class="col centerCol" style="justify-content: flex-end;">
           <div>
-            <h2>My custom dropzone</h2>
+            <img src="../../assets/images/edit.png" alt="">
           </div>
-        </ngx-dropzone-label>
-        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
-          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-        </ngx-dropzone-image-preview>
-      </div> -->
-      <!-- <ngx-dropzone-preview>
-        <ng-template ngx-dropzone-preview-template let-file>
-          <img *ngIf="file.type.includes('image')" [src]="file.dataURL" class="dropzone-image" />
-          <div *ngIf="!file.type.includes('image')" class="dropzone-text">
-            Arrastra y suelta una imagen aquí
+          <div>
+            <p>Ana Perez</p>
           </div>
-        </ng-template>
-      </ngx-dropzone-preview> -->
-    </mat-drawer>
+        </div>
+        <div class="col centerCol" style="justify-content: flex-end;">
+          <div>
+            <img src="../../assets/images/time.png" alt="">
+          </div>
+          <div class="">
+            <p>29/05/23</p>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
 
-    <mat-drawer-content class="chat-pane">
+  </div>
+
+
+
+  <div class="divChat">
+    <mat-drawer-container class="drawer-container">
       <div class="chatContent">
         <div class="chat-message" id="dragzone" (dragover)="handleDragOver($event)" (drop)="handleFileSelect($event)">
           <div #chatcontent [scrollTop]="scrolltop" class="chat-content">
@@ -52,12 +320,12 @@
 
             </div>
             <div class="message-box" *ngFor="let chat of chats" #chatPanel>
-              <div #chatWord class="chat-status" text-center *ngIf="chat.type==='join'||chat.type==='exit';else message">
+              <div #chatWord class="chat-status" text-center
+                *ngIf="chat.type==='join'||chat.type==='exit';else message">
                 <span class="chat-content-center">{{chat.message}}</span>
               </div>
               <ng-template #message>
 
-                <!-- <div class="cardDrag dragzone" *ngIf="showDragZone === false" style="visibility: hidden;"> -->
                 <form [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
                   <div class="cardDrag dragzone" *ngIf="showDragZone">
                     <mat-icon class="close-icon" (click)="closeContainer()">close</mat-icon>
@@ -82,56 +350,109 @@
                     </mat-card>
                   </div>
                 </form>
-                <!-- </div> -->
 
+                <div class="divRihtMessage">
 
-                <div class="right-bubble"
-                  [ngClass]="{'right-bubble': chat.nickname === nickname, 'left-bubble': chat.nickname !== nickname}">
+                  <!-- <div class="divImageRight" *ngIf="chat.nickname === nickname">
+                    <img src="../../assets/images/Frame.png" alt="">
+                  </div> -->
 
-                  <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == '' ">Me</span>
-                  <span class="msg-name" *ngIf="chat.nickname !== nickname && urlImage == '' ">{{chat.nickname}}</span>
-                  <ng-container *ngIf="chat?.urlImage !== undefined">
-                    <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == 'image'">Me</span>
+                  <div class="divImageRight">
+                    <img src="../../assets/images/Frame.png" alt="">
+                  </div>
+                  <!-- 
+                  <div class="divImageRight" *ngIf="chat.nickname !== nickname">
+                    <img src="../../assets/images/foroPerfil2.png" alt="">
+                  </div> -->
+
+                  <div class="right-bubble"
+                    [ngClass]="{'right-bubble': chat.nickname === nickname, 'left-bubble': chat.nickname !== nickname}">
+
+                    <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == '' ">Me</span>
                     <span class="msg-name"
-                      *ngIf="chat.nickname !== nickname && urlImage == 'image'">{{chat.nickname}}</span>
-                    <img class="imgSend" [src]="chat?.urlImage" draggable="true">
-                  </ng-container>
-                  <!-- <div *ngIf="imagePast">
+                      *ngIf="chat.nickname !== nickname && urlImage == '' ">{{chat.nickname}}</span>
+                    <ng-container *ngIf="chat?.urlImage !== undefined">
+                      <span class="msg-name" *ngIf="chat.nickname === nickname && urlImage == 'image'">Me</span>
+                      <!-- Validacion para envio de imagenes  -->
+                      <span class="msg-name"
+                        *ngIf="chat.nickname !== nickname && urlImage == 'image'">{{chat.nickname}}</span>
+                      <img class="imgSend" [src]="chat?.urlImage" draggable="true">
+                      <!-- Validacion para envio de archivos -->
+                      <p *ngIf="chat.file">
+                        <i class="material-icons">attachment</i> {{ chat.file.name }}
+                      </p>
+                    </ng-container>
+                    <!-- <div *ngIf="imagePast">
                     <img class="imgSend" [src]="pasteImageSrc" alt="Pasted Image">
                   </div> -->
-                  <p *ngIf="isTyping">Usuario está escribiendo...</p>
-                  <p class="message-chat"> {{ chat.message }} </p>
+                    <p *ngIf="isTyping">Usuario está escribiendo...</p>
+                    <p class="message-chat"> {{ chat.message }} </p>
+                  </div>
+
                 </div>
               </ng-template>
             </div>
           </div>
 
 
-          <footer class="sticky-footer">
+          <!-- <footer class="sticky-footer"> -->
+          <!-- <div class="container" style="background: #F2F6FF;"> -->
+          <div class="row" style="background: #F2F6FF;margin-right: 0px; margin-left: 0px;">
             <form class="message-form" [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
-              <mat-form-field class="message-form-field">
+              <div class="col-sm-9" style="width: 100%;">
+
+
+                <!-- <mat-form-field class="message-form-field"> -->
+                <!-- <div class="divEmojis">
                 <app-emojis *ngIf="showEmojiPicker" (emojiSelection)="handleEmojiClick($event)"></app-emojis>
-                <div class="boxClose" *ngIf="showEmojiPicker">
-                  <mat-icon class="close-icon closeEmoji" (click)="closeEmoji()">close</mat-icon>
+              </div> -->
+
+                <!-- <div class="boxClose" *ngIf="showEmojiPicker">
+                <mat-icon class="close-icon closeEmoji" (click)="closeEmoji()">close</mat-icon>
+              </div> -->
+                <!-- <div class="boxFile">
+                <input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
+                  accept=".jpg, .jpeg, .png, .pdf, .xlsx, .docx" />
+              </div> -->
+                <!-- <div class="boxEmoji"><a class="btnEmoji" (click)="showEmoji()" type="button">😀</a></div> -->
+                <!-- <div class="boxMessage"> -->
+                <div class="row" style="width: 100%!important;">
+                  <!-- <div class="divInputs"> -->
+                  <div class="col-2 col-sm-11 divMessage">
+                    <input class="inputMessage" matInput placeholder="Enter message here" formControlName="message"
+                      [errorStateMatcher]="matcher" [value]="emojis.join('')" (paste)="handleImagePaste($event)" />
+                    <input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
+                      accept=".jpg, .jpeg, .png, .pdf, .xlsx, .docx" />
+                  </div>
+
+                  <!-- <div class="divError"> -->
+
+                  <div class="col-4 col-sm-1">
+                    <button type="submit" class="btnSubmit" [disabled]="!chatForm.valid" mat-button matSuffix
+                      mat-icon-button aria-label="Send">
+                      <mat-icon>send</mat-icon>
+                    </button>
+                  </div>
+
+                  <!-- <div class="div3">
+                    <mat-error>
+                      <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
+                        message</span>
+                    </mat-error>
+                  </div> -->
+
+
+                  <!-- <div class="btnEnviar"> -->
+
                 </div>
-                <div class="boxFile"><input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
-                    accept=".png,.jpg" /> </div>
-                <div class="boxEmoji"><a class="btnEmoji" (click)="showEmoji()" type="button">😀</a></div>
-                <div class="boxMessage"><input class="inputMessage" matInput placeholder="Enter message here"
-                    formControlName="message" [errorStateMatcher]="matcher" [value]="emojis.join('')" (paste)="handleImagePaste($event)"/></div>
-                <mat-error>
-                  <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
-                    message</span>
-                </mat-error>
-                <button type="submit" class="btnSubmit" [disabled]="!chatForm.valid" mat-button matSuffix
-                  mat-icon-button aria-label="Send">
-                  <mat-icon>send</mat-icon>
-                </button>
-              </mat-form-field>
+                <!-- </mat-form-field> -->
+              </div>
             </form>
-          </footer>
+          </div>
+          <!-- </footer> -->
         </div>
       </div>
-    </mat-drawer-content>
-  </mat-drawer-container>
+      <!-- </mat-drawer-content> -->
+    </mat-drawer-container>
+  </div>
 </div>

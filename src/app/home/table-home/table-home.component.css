@@ -1,11 +1,15 @@
+.divMenu{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100px;
+}
 
-
-
-.navbar{
+.divLogo{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background: #081F4B;
+    width: 300px;
+    width: 41%;
 }
 
 .nav-link{
@@ -19,12 +23,12 @@
     background: #0083ff;
 }
 
-.nav{
+/* .nav{
     line-height: 20px;
     display: flex;
     align-items: center;
     text-align: center
-}
+} */
 
 span{
     color: #ffff;
@@ -40,13 +44,23 @@ mat-icon{
 .custom-header {
     background: #263a61!important;
     color: white; 
-    /* border: #0083FF!important; */
     border: 1px solid #0083FF;
     
   }
 
 td{
     border: 1px solid #CED2D6;
+    height: 40px;
+}
+
+.tdService{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+tr{
+    height: 40px!important;
 }
 
 thead{
@@ -87,8 +101,8 @@ thead{
 }
 
 .tdWorkflow{
-    width: 190px;
-    height: 44px;
+    width: auto;
+    height: auto;
     flex: none;
     order: 7;
 }
@@ -100,8 +114,63 @@ thead{
 }
 
 .divBtnWork{
-    padding: 5px;
+    padding: 2px;
     display: inline-block;
-    width: fit-content
 }
 
+.btnGoService{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+.thCheck{
+    width: 50px;
+}
+.thCia{
+    width: 93px;
+}
+.thDept{
+    width: 67px;
+}
+.thFleet{
+    width: 65px;
+}
+.thService{
+    width: 78px;
+}
+.thName{
+    width: 140px;
+}
+.thStatus{
+    width: 73px;
+}
+.thWorkFlow{
+    width: 200px;
+}
+.thDate{
+    width: 110px;
+}
+
+.empty1{
+    width: 80px;
+}
+.empty2{
+    width: 80px;
+}
+.empty3{
+    width: 80px;
+}
+.empty{
+    width: 80px;
+    position: relative;
+}
+
+  
+  
+  
+  
+  
+  
+  

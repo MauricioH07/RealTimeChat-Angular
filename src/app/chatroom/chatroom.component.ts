@@ -49,6 +49,7 @@ export class ChatroomComponent implements OnInit {
   @ViewChild('chatcontent') chatcontent: ElementRef | any;
   @ViewChild('chatPanel') chatPanel: ElementRef | any;
 
+  selectedFile: any = File;
   imagePast = false;
   pasteImageSrc: string = '';
   showSearch = false;
@@ -365,9 +366,15 @@ export class ChatroomComponent implements OnInit {
     console.log
     const now = new Date();
     let txt = this.chatForm?.value.message ?? "";
-    console.log('txt', event.target.files[0]);
-    this.fbs.uploadImage(event.target.files[0])
+
+    if(event.target.files[0].name.includes(".png") || event.target.files[0].name.includes(".jpg") ){
+
+      console.log('txt', event.target.files[0]);
+      
+      
+      this.fbs.uploadImage(event.target.files[0])
       .then(async (response) => {
+        console.log("Aqui1")
         let url = await response.ref.getDownloadURL()
         const data: Chat = {
           id: now.getTime().toString(),
@@ -376,10 +383,28 @@ export class ChatroomComponent implements OnInit {
           urlImage: url,
           date: moment(now).format('YYYY-MM-DD h:mm:ss'),
         }
-
+        
         this.fbs.saveDataFirebase(data, '/chats');
       });
 
+    }else{
+      this.selectedFile = event.target.files[0];
+      console.log(this.selectedFile);
+      this.fbs.uploadImage(this.selectedFile)
+      .then(async (response) => {
+        let url = await response.ref.getDownloadURL()
+        const data: Chat = {
+          id: now.getTime().toString(),
+          // message: txt,
+          file: this.selectedFile,
+          date: moment(now).format('YYYY-MM-DD h:mm:ss'),
+        }
+        
+        this.fbs.saveDataFirebase(data, '/chats');
+      });
+
+    }
+      
     this.chatForm = new FormGroup({
       message: new FormControl('', Validators.required)
     });
@@ -447,6 +472,10 @@ export class ChatroomComponent implements OnInit {
     })
 
     this.router.navigate(['/roomlist']);
+  }
+
+  backTableHome(){
+    this.router.navigate(['/table-home']);
   }
 
 }

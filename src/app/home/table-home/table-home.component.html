@@ -1,75 +1,93 @@
-<div class="">
+<div class="principalDiv">
 
-  <mat-toolbar class="navbar" color="primary">
+  <div class="navbar navbar-expand-lg" color="primary" navbar-expand style="height: 110px; background: #081F4B;">
+    <!-- <div class="container"> -->
+    <div class="d-flex divMenu">
 
-    <nav class="nav">
-      <a class="nav-link active" href="#">View 1</a>
-      <a class="nav-link" href="#">View 2</a>
-    </nav>
+      <div class="p-2 divNav" style="width: 20%;">
+        <nav class="nav">
+          <a class="nav-link active" href="#">View 1</a>
+          <a class="nav-link" href="#">View 2</a>
+        </nav>
+      </div>
 
-    <div>
-      <img src="../../../assets/images/logo_swiftair 2.png" alt="logo swiftair" srcset="">
+      <div class="p-2 divLogo">
+        <img src="../../../assets/images/logo_swiftair 2.png" alt="logo swiftair" srcset="">
+      </div>
+
+
+      <!-- <div class="p-2 divNavCase" style="width: 41%; height: 50px;"> -->
+      <div class="panel-group">
+        <div class="panel-heading">
+          <nav class="nav">
+            <span>New case</span>
+            <mat-icon class="add">add</mat-icon>
+            <span>My searches</span>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+            <span>Import AIMS</span>
+            <mat-icon> open_in_browser </mat-icon>
+            <span>Configuracion</span>
+          </nav>
+        </div>
+
+        <!-- <div class="divCustomize"> -->
+        <!-- <div class="panel-body">
+          <input type="text">
+        </div> -->
+
+      </div>
     </div>
-
-    <nav class="nav">
-      <span>New case</span>
-      <mat-icon class="add">add</mat-icon>
-      <span>My searches</span>
-      <mat-icon>keyboard_arrow_down</mat-icon>
-      <span>Import AIMS</span>
-      <mat-icon> open_in_browser </mat-icon>
-      <span>Configuracion</span>
-    </nav>
-
-  </mat-toolbar>
+  </div>
 
 
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 demo-table">
+  <table mat-table [dataSource]="dataSource" matSort class="table table-condensed table-bordered table-hover"
+    class="auto-table mat-table">
 
     <!-- Position Column -->
     <ng-container matColumnDef="checkbox">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header"></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header thCheck"></th>
       <td mat-cell *matCellDef="let element"> <input type="checkbox" id="cbox1" value="first_checkbox"
           class="checkbox-round"></td>
     </ng-container>
 
     <ng-container matColumnDef="cia">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header"> CIA </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="custom-header thCia"> CIA </th>
       <td mat-cell *matCellDef="let element"> <img src="../../../assets/images/logo_swiftair_table.png" alt=""
-          srcset=""> </td>
+          srcset=""></td>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="dept">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> DEPT </th>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thDept"> DEPT </th>
       <td mat-cell *matCellDef="let element"> {{element.dept}} </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="fleet">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> Fleet </th>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thFleet"> Fleet </th>
       <td mat-cell *matCellDef="let element"> {{element.fleet}} </td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="service">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> Service </th>
-      <td mat-cell *matCellDef="let element"> <img src=".././../../assets/images/car.png" alt="" srcset=""> </td>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thService"> Service </th>
+      <td mat-cell *matCellDef="let element" class="tdService"> <img src=".././../../assets/images/car.png" alt=""
+          srcset=""> </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> Name </th>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thName"> Name </th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
 
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> Status </th>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thStatus"> Status </th>
       <td mat-cell *matCellDef="let element"> <input type="checkbox" [className]="checkStatus" id="cbox1"
           value="first_checkbox" disabled> </td>
     </ng-container>
 
     <ng-container matColumnDef="workflow">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> Workflow </th>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thWorkFlow"> Workflow </th>
       <td mat-cell *matCellDef="let element" class="tdWorkflow">
         <div class="divBtnWork">
           <button mat-icon-button class="custom-icon-button btnWork">
@@ -90,13 +108,32 @@
     </ng-container>
 
     <ng-container matColumnDef="due_date">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> Due Date </th>
+      <th mat-header-cell *matHeaderCellDef class="custom-header thDate"> Due Date </th>
       <td mat-cell *matCellDef="let element"> {{element.due_date}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="empty">
-      <th mat-header-cell *matHeaderCellDef class="custom-header"> </th>
+    <ng-container matColumnDef="empty1">
+      <th mat-header-cell *matHeaderCellDef class="custom-header empty1"> Customize 1 </th>
       <td mat-cell *matCellDef="let element"> {{element.empty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="empty2">
+      <th mat-header-cell *matHeaderCellDef class="custom-header empty2"> Customize 2 </th>
+      <td mat-cell *matCellDef="let element"> {{element.empty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="empty3">
+      <th mat-header-cell *matHeaderCellDef class="custom-header empty3"> Customize 3 </th>
+      <td mat-cell *matCellDef="let element"> {{element.empty}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="empty">
+      <th mat-header-cell *matHeaderCellDef class="custom-header"></th>
+      <td mat-cell *matCellDef="let element" class="empty">
+        <button mat-icon-button class="bg-primary btnGoService" (click)="goToService()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

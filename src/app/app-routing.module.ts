@@ -14,10 +14,8 @@ const routes: Routes = [
   {path: 'single-layout', component: SingleLayoutComponent},
   {path: 'addroom', component: AddroomComponent},
   {path: 'chatroom/:roomname', component: ChatroomComponent},
-  {path: '',
-    redirectTo:'/table-home',
-    pathMatch: 'full'
-}
+  // {path: 'cardrive', loadChildren: './components/cardrive'},
+  {path: '',redirectTo:'/login',pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -25,6 +25,8 @@ export class FirebaseService {
   }
 
   uploadImage(file: any){
+
+    console.log("Aqui en upload", file.name)
     return this.storage.upload(file.name, file);
   }
 

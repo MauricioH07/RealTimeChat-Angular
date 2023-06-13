@@ -1,5 +1,26 @@
-<div class="container">
-    <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+<div class="divPrinvipal">
+  <div class="divForm">
+
+    <!-- <img class="imgLogo" src="../../assets/images/logo_swiftair 2.png" alt=""> -->
+
+    <div class="card">
+      <img class="card-img-top imgLogo" src="../../assets/images/logo_swiftair 2.png" alt="Card image cap">
+      <div class="card-body">
+        <form action="login.component.html">
+          <label for="user" style="color: white;">User</label>
+          <input class="inputUser" type="text" id="user" placeholder="ejemplo@ejemplo.es">
+          <label for="password" style="color: white; margin-top: 5px;">Password</label>
+          <input class="inputPass" type="text" id="password" placeholder="*****">
+          <button class="btn bg-primary" style="color: white; margin-top: 8px; width: 100%;" type="submit" (click)="login()">
+            <span style="float: left;">Login</span>
+            <span class="material-icons" style="float: right;"> arrow_forward_ios </span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <!-- <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
         <h2>Please login using your nickname</h2>
         <mat-form-field class="example-full-width">
           <mat-label>Nickname</mat-label>
@@ -12,6 +33,7 @@
         <div class="button-row">
             <button type="submit" [disabled]="!loginForm.valid" mat-fab color="primary"><mat-icon>login</mat-icon></button>
         </div>
-    </form>
-  </div>
-  
+    </form> -->
+
+
+</div>
