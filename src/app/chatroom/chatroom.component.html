@@ -4,63 +4,147 @@
   <!-- <mat-toolbar class="navbar" color="primary"> -->
   <div class="navbar">
 
-    <div class="divBack item">
+    <!-- <div class="container"> -->
+    <div class="row" style="width: 100%;">
+      <div class="col">
+        <button class="btnBack">
+          <a class="text" href="http://localhost:4200/table-home" style="display: contents;">
+            <span class="material-icons icon">arrow_back</span>
+            Back </a>
+        </button>
+      </div>
+      <div class="col">
+        <button class="btnCase">
+          <span class="spanNumber">3</span>
+          <span class="spanCase">Case</span>
+          <span>1247</span>
+        </button>
+      </div>
+      <div class="col">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-1">
+              <button mat-button [matMenuTriggerFor]="menu" class="btnStatus" style="position: absolute">
+                <img src="../../assets/images/CircleGreen.png" alt="">
+              </button>
+            </div>
+            <div class="col-1"  style="position: absolute;">
+              <mat-icon class="iconStatus">keyboard_arrow_right</mat-icon>
+            </div>
+          </div>
+        </div>
+        <!-- <button mat-button [matMenuTriggerFor]="menu" class="btnStatus">
+          <img src="../../assets/images/CircleGreen.png" alt="">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button> -->
+        <mat-menu #menu="matMenu">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: red;"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+          <button class="menuStatus" mat-menu-item style="background: green;"></button>
+          <button class="menuStatus" mat-menu-item style="background: white;"></button>
+          <button class="menuStatus" mat-menu-item style="background: white;">X</button> -->
+        </mat-menu>
+      </div>
+      <div class="col">
+        <button class="btnWorkflow">
+          <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
+          <span class="spanArrowRight">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </span>
+        </button>
+      </div>
+      <div class="col-4">
+        <button>Rua Amadeus</button>
+      </div>
+      <div class="col-3">
+        <button class="btnNewCase" style="position: absolute; right: 0;">
+          <span class="">New Case</span>
+          <span class="spanNewCase">
+            <mat-icon>add</mat-icon>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+
+  <!-- <div class="navbar"> -->
+
+  <!-- <div class="divBack item">
       <button class="btnBack">
         <a class="text" href="http://localhost:4200/table-home" style="display: contents;">
           <span class="material-icons icon">arrow_back</span>
           Back </a>
       </button>
-    </div>
+    </div> -->
 
-    <div class="divCase item">
+  <!-- <div class="divCase item">
       <button class="btnCase">
         <span class="spanNumber">3</span>
         <span class="spanCase">Case</span>
         <span>1247</span>
       </button>
-    </div>
+    </div> -->
 
-    <div class="divStatus item">
+  <!-- <div class="divStatus item">
       <button mat-button [matMenuTriggerFor]="menu" class="btnStatus">
-        <!-- <span class="spanStatus"> -->
         <mat-icon>keyboard_arrow_right</mat-icon>
         <img src="../../assets/images/CircleGreen.png" alt="">
-        <!-- </span> -->
-        <!-- <span class="spanArrowRight"> -->
-        <!-- </span> -->
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>Item 1</button>
         <button mat-menu-item>Item 2</button>
-      </mat-menu>
-      <!-- <button class="btnStatus">
+      </mat-menu> -->
+  <!-- <button class="btnStatus">
 
 
       </button> -->
-    </div>
+  <!-- </div> -->
 
-    <div class="divWorkflow item">
+  <!-- <div class="divWorkflow item">
       <button class="btnWorkflow">
         <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
         <span class="spanArrowRight">
           <mat-icon>keyboard_arrow_right</mat-icon>
         </span>
       </button>
-    </div>
+    </div> -->
 
-    <div class="divAmadeus item">
+  <!-- <div class="divAmadeus item">
       <button>Rua Amadeus</button>
-    </div>
+    </div> -->
 
-    <div class="divNewCase item">
+  <!-- <div class="divNewCase item">
       <button class="btnNewCase">
         <span class="">New Case</span>
         <span class="spanNewCase">
           <mat-icon>add</mat-icon>
         </span>
       </button>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 
   <!-- </mat-toolbar> -->
 
@@ -290,7 +374,7 @@
           <span>Case creator</span>
         </div>
         <div class="col centerCol" style="justify-content: flex-end;">
-          <div>
+          <div style="height: 100%;">
             <img src="../../assets/images/edit.png" alt="">
           </div>
           <div>
@@ -298,7 +382,7 @@
           </div>
         </div>
         <div class="col centerCol" style="justify-content: flex-end;">
-          <div>
+          <div style="height: 100%;">
             <img src="../../assets/images/time.png" alt="">
           </div>
           <div class="">
@@ -436,9 +520,9 @@
                     <div class="row divInputMessage" style="width: 95%;">
                       <div class="col-11 ">
                         <!-- <mat-form-field class="inputMessage"> -->
-                        <input matInput class="custom-input" class="inputMessage" matInput placeholder="Enter message here" formControlName="message"
-                          [errorStateMatcher]="matcher" [value]="emojis.join('')" (paste)="handleImagePaste($event)" 
-                          style="width: 100%;" />
+                        <input matInput class="custom-input" class="inputMessage" matInput
+                          placeholder="Enter message here" formControlName="message" [errorStateMatcher]="matcher"
+                          [value]="emojis.join('')" (paste)="handleImagePaste($event)" style="width: 100%;" />
                         <!-- </mat-form-field> -->
                       </div>
 

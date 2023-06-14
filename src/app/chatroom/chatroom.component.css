@@ -5,7 +5,7 @@
   }
 
   .principal{
-    height: 103%;
+    height: 900px;
     /* position: relative; */
     width: 99%;
     position: relative;
@@ -40,7 +40,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 8px 0px -1px 36px;
-    gap: 8px;
+    gap: 5px;
     display: flex;
     /* background: #F2F6FF; */
     margin: auto;
@@ -63,7 +63,7 @@
   .chatContent{
     /* width: 821px; */
     width: 100%;
-    height: 100%;
+    height: 99%;
     flex: 1;
     border: 1px solid black;
   }
@@ -209,7 +209,7 @@
   
   .message-box {
     float: left;
-    width: 98%;
+    width: 97%;
     margin: 5px 0 0 2%;
   }
   
@@ -335,7 +335,7 @@ height: 0px!important;
     background: #F2F6FF;
     overflow-y: scroll;
     /* height: 628px; */
-    height: 91%;
+    height: 92%;
 
   }
 
@@ -527,6 +527,13 @@ height: 0px!important;
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
+}
+
+.iconStatus{
+  position: absolute;
+  color: white;
+  top: 7px;
+  left: 55px;
 }
 
 .spanNumber{
@@ -760,4 +767,11 @@ label{
   font-size: 20px;
   height: auto!important;
   width: auto!important;
+}
+
+.menuStatus{
+  border-radius: 100%;
+  /* background: red; */
+  width: 38px;
+  height: 20px;
 }
