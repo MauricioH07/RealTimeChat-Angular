@@ -5,7 +5,7 @@
   }
 
   .principal{
-    height: 103%;
+    height: 900px;
     /* position: relative; */
     width: 99%;
     position: relative;
@@ -40,7 +40,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 8px 0px -1px 36px;
-    gap: 8px;
+    gap: 5px;
     display: flex;
     /* background: #F2F6FF; */
     margin: auto;
@@ -63,7 +63,7 @@
   .chatContent{
     /* width: 821px; */
     width: 100%;
-    height: 100%;
+    height: 99%;
     flex: 1;
     border: 1px solid black;
   }
@@ -175,8 +175,31 @@
 
   .inputMessage {
     background: white;
-    border-radius: 8px;
-    width: 90%!important;
+    border-radius: 30px;
+    height: 100%;
+    border: none;
+    float: left;
+    width: 100%;
+    left: 5px;
+    position: absolute;
+    outline: none;
+  }
+
+  .divInputMessage{
+    position: absolute;
+    box-shadow: 0px 2px 5px rgba(103, 110, 118, 0.08), 0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.12);
+    background: white;
+    border-radius: 30px;
+    height: 100%;
+  }
+
+  .custom-input.mat-focused .mat-form-field-outline {
+    border-color: transparent !important;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    border: none;
   }
 
   .divMessage{
@@ -186,7 +209,7 @@
   
   .message-box {
     float: left;
-    width: 98%;
+    width: 97%;
     margin: 5px 0 0 2%;
   }
   
@@ -312,7 +335,7 @@ height: 0px!important;
     background: #F2F6FF;
     overflow-y: scroll;
     /* height: 628px; */
-    height: 91%;
+    height: 92%;
 
   }
 
@@ -337,7 +360,15 @@ height: 0px!important;
   }
 
   .btnSubmit{
-    /* display: none; */
+    background: #0083FF;
+    border-radius: 100%;
+    display: flex;
+    /* flex-direction: row; */
+    /* align-items: flex-start; */
+    /* padding: 13px; */
+    /* gap: 10px;
+    width: 64px;
+    height: 41px; */
   }
   
   button {
@@ -357,7 +388,7 @@ height: 0px!important;
   }
 
   .file-input {
-    background-image: url('../../assets/images/upload.png');
+    background-image: url('../../assets/images/clipFile.png');
     background-repeat: no-repeat;
     background-position: 9px initial;
     background-size: 25px;
@@ -366,7 +397,11 @@ height: 0px!important;
     width: 28px;
     padding-left: 29px;
     padding-right: 0px;
-    height: 26px;
+    left: 1px;
+    transform: rotate(-43deg);
+    background-position: center;
+    height: 100%;
+    position: absolute;
     /* border: 1px solid rgba(9, 113, 163, 1); */
     border-radius: 10px
   }
@@ -492,6 +527,13 @@ height: 0px!important;
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
+}
+
+.iconStatus{
+  position: absolute;
+  color: white;
+  top: 7px;
+  left: 55px;
 }
 
 .spanNumber{
@@ -715,6 +757,21 @@ label{
   align-items: center;
 }
 
-.mat-tab-label-active button:active{
-  background-color: #ff0000; /* Cambia el color de fondo según tus necesidades */
+.mat-mdc-button>.mat-icon{
+  color: white; 
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  font-size: 20px;
+  height: auto!important;
+  width: auto!important;
+}
+
+.menuStatus{
+  border-radius: 100%;
+  /* background: red; */
+  width: 38px;
+  height: 20px;
 }

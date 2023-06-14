@@ -4,52 +4,147 @@
   <!-- <mat-toolbar class="navbar" color="primary"> -->
   <div class="navbar">
 
-    <div class="divBack item">
-      <button class="btnBack" (click)="backTableHome()">
-        <span class="material-icons icon">arrow_back</span>
-        <span class="text">Back</span>
-      </button>
-    </div>
+    <!-- <div class="container"> -->
+    <div class="row" style="width: 100%;">
+      <div class="col">
+        <button class="btnBack">
+          <a class="text" href="http://localhost:4200/table-home" style="display: contents;">
+            <span class="material-icons icon">arrow_back</span>
+            Back </a>
+        </button>
+      </div>
+      <div class="col">
+        <button class="btnCase">
+          <span class="spanNumber">3</span>
+          <span class="spanCase">Case</span>
+          <span>1247</span>
+        </button>
+      </div>
+      <div class="col">
+        <div class="container">
 
-    <div class="divCase item">
+          <div class="row">
+            <div class="col-1">
+              <button mat-button [matMenuTriggerFor]="menu" class="btnStatus" style="position: absolute">
+                <img src="../../assets/images/CircleGreen.png" alt="">
+              </button>
+            </div>
+            <div class="col-1"  style="position: absolute;">
+              <mat-icon class="iconStatus">keyboard_arrow_right</mat-icon>
+            </div>
+          </div>
+        </div>
+        <!-- <button mat-button [matMenuTriggerFor]="menu" class="btnStatus">
+          <img src="../../assets/images/CircleGreen.png" alt="">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button> -->
+        <mat-menu #menu="matMenu">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: red;"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+          <button class="menuStatus" mat-menu-item style="background: green;"></button>
+          <button class="menuStatus" mat-menu-item style="background: white;"></button>
+          <button class="menuStatus" mat-menu-item style="background: white;">X</button> -->
+        </mat-menu>
+      </div>
+      <div class="col">
+        <button class="btnWorkflow">
+          <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
+          <span class="spanArrowRight">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </span>
+        </button>
+      </div>
+      <div class="col-4">
+        <button>Rua Amadeus</button>
+      </div>
+      <div class="col-3">
+        <button class="btnNewCase" style="position: absolute; right: 0;">
+          <span class="">New Case</span>
+          <span class="spanNewCase">
+            <mat-icon>add</mat-icon>
+          </span>
+        </button>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+
+  <!-- <div class="navbar"> -->
+
+  <!-- <div class="divBack item">
+      <button class="btnBack">
+        <a class="text" href="http://localhost:4200/table-home" style="display: contents;">
+          <span class="material-icons icon">arrow_back</span>
+          Back </a>
+      </button>
+    </div> -->
+
+  <!-- <div class="divCase item">
       <button class="btnCase">
         <span class="spanNumber">3</span>
         <span class="spanCase">Case</span>
         <span>1247</span>
       </button>
-    </div>
+    </div> -->
 
-    <div class="divStatus item">
-      <button class="btnStatus">
-        <span class="spanStatus"><img src="../../assets/images/CircleGreen.png" alt=""></span>
-        <span class="spanArrowRight">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </span>
+  <!-- <div class="divStatus item">
+      <button mat-button [matMenuTriggerFor]="menu" class="btnStatus">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+        <img src="../../assets/images/CircleGreen.png" alt="">
       </button>
-    </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu> -->
+  <!-- <button class="btnStatus">
 
-    <div class="divWorkflow item">
+
+      </button> -->
+  <!-- </div> -->
+
+  <!-- <div class="divWorkflow item">
       <button class="btnWorkflow">
         <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
         <span class="spanArrowRight">
           <mat-icon>keyboard_arrow_right</mat-icon>
         </span>
       </button>
-    </div>
+    </div> -->
 
-    <div class="divAmadeus item">
+  <!-- <div class="divAmadeus item">
       <button>Rua Amadeus</button>
-    </div>
+    </div> -->
 
-    <div class="divNewCase item">
+  <!-- <div class="divNewCase item">
       <button class="btnNewCase">
         <span class="">New Case</span>
         <span class="spanNewCase">
           <mat-icon>add</mat-icon>
         </span>
       </button>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 
   <!-- </mat-toolbar> -->
 
@@ -158,7 +253,7 @@
             <ng-template mat-tab-label>
               <button class="btnRentCar2">
                 <img src="../../assets/images/bus.png" alt="" style="margin-right: 2px;">
-                 Bus
+                Bus
                 <mat-icon>keyboard_arrow_right</mat-icon>
               </button>
             </ng-template>
@@ -279,7 +374,7 @@
           <span>Case creator</span>
         </div>
         <div class="col centerCol" style="justify-content: flex-end;">
-          <div>
+          <div style="height: 100%;">
             <img src="../../assets/images/edit.png" alt="">
           </div>
           <div>
@@ -287,7 +382,7 @@
           </div>
         </div>
         <div class="col centerCol" style="justify-content: flex-end;">
-          <div>
+          <div style="height: 100%;">
             <img src="../../assets/images/time.png" alt="">
           </div>
           <div class="">
@@ -399,42 +494,86 @@
           <!-- <div class="container" style="background: #F2F6FF;"> -->
           <div class="row" style="background: #F2F6FF;margin-right: 0px; margin-left: 0px;">
             <form class="message-form" [formGroup]="chatForm" (ngSubmit)="onFormSubmit(chatForm.value)">
-              <div class="col-sm-9" style="width: 100%;">
+              <!-- <div class="col-sm-9" style="width: 100%;"> -->
 
 
-                <!-- <mat-form-field class="message-form-field"> -->
-                <!-- <div class="divEmojis">
+              <!-- <mat-form-field class="message-form-field"> -->
+              <!-- <div class="divEmojis">
                 <app-emojis *ngIf="showEmojiPicker" (emojiSelection)="handleEmojiClick($event)"></app-emojis>
               </div> -->
 
-                <!-- <div class="boxClose" *ngIf="showEmojiPicker">
+              <!-- <div class="boxClose" *ngIf="showEmojiPicker">
                 <mat-icon class="close-icon closeEmoji" (click)="closeEmoji()">close</mat-icon>
               </div> -->
-                <!-- <div class="boxFile">
+              <!-- <div class="boxFile">
                 <input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
                   accept=".jpg, .jpeg, .png, .pdf, .xlsx, .docx" />
               </div> -->
-                <!-- <div class="boxEmoji"><a class="btnEmoji" (click)="showEmoji()" type="button">😀</a></div> -->
-                <!-- <div class="boxMessage"> -->
-                <div class="row" style="width: 100%!important;">
-                  <!-- <div class="divInputs"> -->
-                  <div class="col-2 col-sm-11 divMessage">
+              <!-- <div class="boxEmoji"><a class="btnEmoji" (click)="showEmoji()" type="button">😀</a></div> -->
+              <!-- <div class="boxMessage"> -->
+              <div class="container">
+
+                <div class="row" style="width: 100%;height: 41px">
+
+                  <div class="col-10">
+
+                    <div class="row divInputMessage" style="width: 95%;">
+                      <div class="col-11 ">
+                        <!-- <mat-form-field class="inputMessage"> -->
+                        <input matInput class="custom-input" class="inputMessage" matInput
+                          placeholder="Enter message here" formControlName="message" [errorStateMatcher]="matcher"
+                          [value]="emojis.join('')" (paste)="handleImagePaste($event)" style="width: 100%;" />
+                        <!-- </mat-form-field> -->
+                      </div>
+
+                      <div class="col-1">
+
+                        <input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
+                          accept=".jpg, .jpeg, .png, .pdf, .xlsx, .docx" />
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-2">
+                    <button type="submit" class="btnSubmit" [disabled]="!chatForm.valid" mat-button matSuffix
+                      mat-icon-button aria-label="Send">
+                      <mat-icon class="iconSend">send</mat-icon>
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <div class="row" style="width: 100%;height: 32px">
+                  <div class="col-5">
+                    <mat-error>
+                      <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
+                        message</span>
+                    </mat-error>
+                  </div>
+                </div>
+
+              </div>
+              <!-- <div class="row" style="width: 100%!important;"> -->
+              <!-- <div class="divInputs"> -->
+              <!-- <div class="col-2 col-sm-11 divMessage">
                     <input class="inputMessage" matInput placeholder="Enter message here" formControlName="message"
                       [errorStateMatcher]="matcher" [value]="emojis.join('')" (paste)="handleImagePaste($event)" />
                     <input class="file-input" type="file" (change)="upload($event)" dropzone="copy"
                       accept=".jpg, .jpeg, .png, .pdf, .xlsx, .docx" />
-                  </div>
+                  </div> -->
 
-                  <!-- <div class="divError"> -->
+              <!-- <div class="divError"> -->
 
-                  <div class="col-4 col-sm-1">
+              <!-- <div class="col-4 col-sm-1">
                     <button type="submit" class="btnSubmit" [disabled]="!chatForm.valid" mat-button matSuffix
                       mat-icon-button aria-label="Send">
                       <mat-icon>send</mat-icon>
                     </button>
                   </div>
 
-                  <!-- <div class="div3">
+                  <div class="div3">
                     <mat-error>
                       <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
                         message</span>
@@ -442,11 +581,11 @@
                   </div> -->
 
 
-                  <!-- <div class="btnEnviar"> -->
+              <!-- <div class="btnEnviar"> -->
 
-                </div>
-                <!-- </mat-form-field> -->
-              </div>
+              <!-- </div> -->
+              <!-- </mat-form-field> -->
+              <!-- </div> -->
             </form>
           </div>
           <!-- </footer> -->
