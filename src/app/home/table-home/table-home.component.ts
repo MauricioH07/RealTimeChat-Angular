@@ -94,7 +94,8 @@ export class TableHomeComponent implements OnInit {
 
   goToService(){
 
-    this.router.navigate(['/chatroom/Softcode']);
+    this.router.navigate(['/chatroom']);
+    // this.router.navigate(['/table-home']);
   }
 
 }

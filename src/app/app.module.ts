@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RoomlistComponent } from './roomlist/roomlist.component';
+// import { RoomlistComponent } from './roomlist/roomlist.component';
 import { AddroomComponent } from './addroom/addroom.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,12 +41,15 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CardriveComponent } from './components/cardrive/cardrive.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { BusComponent } from './components/bus/bus.component';
 import { CarComponent } from './components/car/car.component';
 import { FligthComponent } from './components/fligth/fligth.component';
 import { TrainComponent } from './components/train/train.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -55,7 +58,7 @@ import { TrainComponent } from './components/train/train.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RoomlistComponent,
+    // RoomlistComponent,
     AddroomComponent,
     ChatroomComponent,
     MessageComponent,
@@ -69,7 +72,7 @@ import { TrainComponent } from './components/train/train.component';
     CarComponent,
     FligthComponent,
     TrainComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -97,8 +100,11 @@ import { TrainComponent } from './components/train/train.component';
     MatExpansionModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatTabsModule
-    
+    MatTabsModule,
+    MatMenuModule,
+    MatButtonModule,
+    RouterModule
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

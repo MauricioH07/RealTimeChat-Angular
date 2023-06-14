@@ -80,7 +80,8 @@ export class ChatroomComponent implements OnInit {
     public datepipe: DatePipe,
     private fbs: FirebaseService,
     private db: AngularFirestore,
-    private elementRef: ElementRef) {
+    private elementRef: ElementRef,
+    ) {
 
     // Cargamos los mensajes viejos al entrar en el chat
     this.nickname = localStorage.getItem('nickname');
@@ -441,41 +442,42 @@ export class ChatroomComponent implements OnInit {
 
 
   // Salida de la sala de chat
-  exitChat() {
-    const now = new Date();
-    const chat: Message = {
-      roomname: this.roomname,
-      nickname: this.nickname,
-      message: `${this.nickname} leave the room`,
-      date: moment(now).format('YYYY-MM-DD h:mm:ss'),
-      type: 'exit'
-    };
+  // exitChat() {
+  //   const now = new Date();
+  //   const chat: Message = {
+  //     roomname: this.roomname,
+  //     nickname: this.nickname,
+  //     message: `${this.nickname} leave the room`,
+  //     date: moment(now).format('YYYY-MM-DD h:mm:ss'),
+  //     type: 'exit'
+  //   };
 
-    chat.roomname = this.roomname;
-    chat.nickname = this.nickname;
-    chat.date = moment(now).format('YYYY-MM-DD h:mm:ss');
-    chat.message = `${this.nickname} leave the room`;
-    chat.type = 'exit';
-    // Guardamos el mensaje de salida en la BD
-    this.fbs.saveDataFirebase(chat, '/chats')
+  //   chat.roomname = this.roomname;
+  //   chat.nickname = this.nickname;
+  //   chat.date = moment(now).format('YYYY-MM-DD h:mm:ss');
+  //   chat.message = `${this.nickname} leave the room`;
+  //   chat.type = 'exit';
+  //   // Guardamos el mensaje de salida en la BD
+  //   this.fbs.saveDataFirebase(chat, '/chats')
 
-    // Actualizamos el status cuando el usuario sale del chat
-    const db = firebase.firestore();
-    const collection = db.collection('roomusers/')
-    collection.get().then((snapshot) => {
-      const userFind = snapshot.docs.find((doc) => doc.data()['nickname'] === this.nickname && doc.data()['roomname'] === this.roomname)
+  //   // Actualizamos el status cuando el usuario sale del chat
+  //   const db = firebase.firestore();
+  //   const collection = db.collection('roomusers/')
+  //   collection.get().then((snapshot) => {
+  //     const userFind = snapshot.docs.find((doc) => doc.data()['nickname'] === this.nickname && doc.data()['roomname'] === this.roomname)
 
-      const upd = this.db.doc(`roomusers/${userFind?.id}`)
-      upd.update({ status: 'offline' })
-        .catch((error) => console.log('Error updating user:', error));
+  //     const upd = this.db.doc(`roomusers/${userFind?.id}`)
+  //     upd.update({ status: 'offline' })
+  //       .catch((error) => console.log('Error updating user:', error));
 
-    })
+  //   })
 
-    this.router.navigate(['/roomlist']);
-  }
+  //   this.router.navigate(['/roomlist']);
+  // }
 
   backTableHome(){
-    this.router.navigate(['/table-home']);
+    this.router.navigate(['/login']);
+    // this.router.navigate(['localhost:4200/table-home']);
   }
 
 }
