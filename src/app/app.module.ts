@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { RoomlistComponent } from './roomlist/roomlist.component';
+// import { RoomlistComponent } from './roomlist/roomlist.component';
 import { AddroomComponent } from './addroom/addroom.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,11 +31,26 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DatePipe } from '@angular/common';
 import { MessageComponent } from './components/message/message.component';
 import { LiveRoomComponent } from './pages/live-room/live-room.component';
-import { DropzoneComponent } from './components/dropzone/dropzone.component';
 import { EmojiModule } from '@ctrl/ngx-emoji-mart/ngx-emoji'
 import { PickerModule } from '@ctrl/ngx-emoji-mart';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SingleLayoutComponent } from './single-layout/single-layout.component';
+import { EmojisComponent } from './components/emojis/emojis.component';
+import { TableHomeComponent } from './home/table-home/table-home.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CardriveComponent } from './components/cardrive/cardrive.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HotelComponent } from './components/hotel/hotel.component';
+import { BusComponent } from './components/bus/bus.component';
+import { CarComponent } from './components/car/car.component';
+import { FligthComponent } from './components/fligth/fligth.component';
+import { TrainComponent } from './components/train/train.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -43,14 +58,21 @@ import { SingleLayoutComponent } from './single-layout/single-layout.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RoomlistComponent,
+    // RoomlistComponent,
     AddroomComponent,
     ChatroomComponent,
     MessageComponent,
     LiveRoomComponent,
-    DropzoneComponent,
     SingleLayoutComponent,
-    
+    EmojisComponent,
+    TableHomeComponent,
+    CardriveComponent,
+    HotelComponent,
+    BusComponent,
+    CarComponent,
+    FligthComponent,
+    TrainComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -74,7 +96,15 @@ import { SingleLayoutComponent } from './single-layout/single-layout.component';
     NgxDropzoneModule,
     EmojiModule,
     PickerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatMenuModule,
+    MatButtonModule,
+    RouterModule
+
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

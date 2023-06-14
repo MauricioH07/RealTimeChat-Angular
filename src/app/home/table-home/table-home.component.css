@@ -1,0 +1,180 @@
+.divMenu{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 100px;
+}
+
+.divLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    width: 41%;
+}
+
+.nav-link{
+    color: #ffff;
+    box-shadow: 0px 2px 5px rgba(103, 110, 118, 0.08), 0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.12);
+    border-radius: 0px 0px 0px 8px;
+    background: #263a61
+}
+
+.nav-link.active{
+    background: #0083ff;
+}
+
+/* .nav{
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center
+} */
+
+span{
+    color: #ffff;
+    width: 105px;
+    height: 20px;
+}
+
+mat-icon{
+    margin: 2px;
+    color: #ffff;
+}
+
+.custom-header {
+    background: #263a61!important;
+    color: white; 
+    border: 1px solid #0083FF;
+    
+  }
+
+td{
+    border: 1px solid #CED2D6;
+    height: 53px;
+}
+
+.tdService{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: none; */
+}
+
+tr{
+    height: 52px!important;
+    /* border:1px solid #CED2D6 */
+}
+
+thead{
+    background: #263a61
+}
+
+.checkbox-round:checked {
+    background-color: gray;
+}
+
+.checkbox-round {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(103, 110, 118, 0.08), 0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 1px 1px rgba(0, 0, 0, 0.12);
+    border-radius: 100px;
+}
+
+.checkStatus{
+    pointer-events: none;
+    background-color: #53B483!important;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.tdWorkflow{
+    width: auto;
+    height: auto;
+    flex: none;
+    order: 7;
+}
+
+.btnWork{
+    background: transparent;
+    border: none;
+
+}
+
+.divBtnWork{
+    padding: 2px;
+    display: inline-block;
+}
+
+.btnGoService{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #0083FF;
+}
+
+
+.thCheck{
+    width: 50px;
+}
+.thCia{
+    width: 93px;
+}
+.thDept{
+    width: 67px;
+}
+.thFleet{
+    width: 65px;
+}
+.thService{
+    width: 78px;
+}
+.thName{
+    width: 140px;
+}
+.thStatus{
+    width: 73px;
+}
+.thWorkFlow{
+    width: 200px;
+}
+.thDate{
+    width: 110px;
+}
+
+.empty1{
+    width: 80px;
+}
+.empty2{
+    width: 80px;
+}
+.empty3{
+    width: 80px;
+}
+.empty{
+    width: 80px;
+    position: relative;
+}
+
+
+  
+  
+  
+  
+  
+  
+  
