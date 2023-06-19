@@ -20,61 +20,160 @@
           <span>1247</span>
         </button>
       </div>
-      <div class="col">
+      <div class="col-0">
         <div class="container">
 
           <div class="row">
-            <div class="col-1">
-              <button mat-button [matMenuTriggerFor]="menu" class="btnStatus" style="position: absolute">
-                <img src="../../assets/images/CircleGreen.png" alt="">
+            <div class="col">
+              <button mat-button [matMenuTriggerFor]="menu" class="btnStatus" style="color: white;">
+
+                <ng-container *ngIf="selectedOptionStatus; else defaultOption">
+                  <img src={{selectedOptionStatus}} alt="">
+                </ng-container>
+
+                <ng-template #defaultOption>
+                  <!-- <img src={{selectedOption}} alt=""> -->
+                  <img src="../../assets/images/CircleGreen.png" alt="">
+                </ng-template>
+
               </button>
             </div>
-            <div class="col-1"  style="position: absolute;">
+
+            <div class="col-1" style="position: absolute;">
               <mat-icon class="iconStatus">keyboard_arrow_right</mat-icon>
             </div>
           </div>
         </div>
-        <!-- <button mat-button [matMenuTriggerFor]="menu" class="btnStatus">
-          <img src="../../assets/images/CircleGreen.png" alt="">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </button> -->
+
         <mat-menu #menu="matMenu">
           <div class="container">
             <div class="row">
               <div class="col">
-                <button class="menuStatus" mat-menu-item style="background: red;"></button>
+                <button mat-menu- (click)="statuSelection('red')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/redCircle.png" alt="">
+                </button>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+                <button mat-menu- (click)="statuSelection('yellow')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/yellowCircle.png" alt="">
+                </button>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+                <button mat-menu- (click)="statuSelection('green')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/CircleGreen.png" alt="">
+                </button>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
+                <button mat-menu- (click)="statuSelection('white')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/whiteCircle.png" alt="">
+                </button>
               </div>
             </div>
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="statuSelection('whiteX')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/whiteCross_circle.png" alt="">
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="statuSelection('redE')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/redE_circle.png" alt="">
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="statuSelection('yellowE')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/yellowE_circle.png" alt="">
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="statuSelection('greenE')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/greenE_Circle.png" alt="">
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="statuSelection('whiteE')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/whiteE_circle.png" alt="">
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="statuSelection('whiteEX')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/whiteE_cross_circle.png" alt="">
+                </button>
+              </div>
+            </div>
+
           </div>
-          <!-- <button class="menuStatus" mat-menu-item style="background: yellow;"></button>
-          <button class="menuStatus" mat-menu-item style="background: green;"></button>
-          <button class="menuStatus" mat-menu-item style="background: white;"></button>
-          <button class="menuStatus" mat-menu-item style="background: white;">X</button> -->
         </mat-menu>
       </div>
+
+      <!-- Menu para seleccionar el workflow -->
       <div class="col">
-        <button class="btnWorkflow">
-          <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
-          <span class="spanArrowRight">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </span>
-        </button>
+        <!-- <div class="container"> -->
+
+        <div class="row" style="width: 100%;">
+          <div class="col">
+            <button mat-button [matMenuTriggerFor]="menuTime" class="btnWorkflow"
+              style="position: absolute; color: white;">
+
+              <ng-container *ngIf="selectedOptionTime; else defaultOptionTime">
+                <img src={{selectedOptionTime}} alt="">
+              </ng-container>
+
+              <ng-template #defaultOptionTime>
+                <img src="../../assets/images/timeWhite.png" alt="">
+              </ng-template>
+
+            </button>
+          </div>
+          <div class="col-1" style="position: absolute;">
+            <mat-icon class="iconStatus">keyboard_arrow_right</mat-icon>
+          </div>
+        </div>
+
+        <!-- </div> -->
+
+
+        <mat-menu #menuTime="matMenu">
+          <div class="container">
+
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="timeSelection('time')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/time.png" alt="">
+                </button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <button mat-menu- (click)="timeSelection('timeTravel')" style="background: transparent;">
+                  <img class="imgMenuStatus" src="../../assets/images/timeTravel.png" alt="">
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </mat-menu>
+
       </div>
+
+
       <div class="col-4">
         <button>Rua Amadeus</button>
       </div>
@@ -90,70 +189,13 @@
     <!-- </div> -->
   </div>
 
-  <!-- <div class="navbar"> -->
-
-  <!-- <div class="divBack item">
-      <button class="btnBack">
-        <a class="text" href="http://localhost:4200/table-home" style="display: contents;">
-          <span class="material-icons icon">arrow_back</span>
-          Back </a>
-      </button>
-    </div> -->
-
-  <!-- <div class="divCase item">
-      <button class="btnCase">
-        <span class="spanNumber">3</span>
-        <span class="spanCase">Case</span>
-        <span>1247</span>
-      </button>
-    </div> -->
-
-  <!-- <div class="divStatus item">
-      <button mat-button [matMenuTriggerFor]="menu" class="btnStatus">
-        <mat-icon>keyboard_arrow_right</mat-icon>
-        <img src="../../assets/images/CircleGreen.png" alt="">
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu> -->
-  <!-- <button class="btnStatus">
-
-
-      </button> -->
-  <!-- </div> -->
-
-  <!-- <div class="divWorkflow item">
-      <button class="btnWorkflow">
-        <span class="spanWorkflow"><img src="../../assets/images/timeWhite.png" alt=""></span>
-        <span class="spanArrowRight">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </span>
-      </button>
-    </div> -->
-
-  <!-- <div class="divAmadeus item">
-      <button>Rua Amadeus</button>
-    </div> -->
-
-  <!-- <div class="divNewCase item">
-      <button class="btnNewCase">
-        <span class="">New Case</span>
-        <span class="spanNewCase">
-          <mat-icon>add</mat-icon>
-        </span>
-      </button>
-    </div> -->
-  <!-- </div> -->
-
-  <!-- </mat-toolbar> -->
-
   <div class="services">
 
-    <!-- <div class="passenger"> -->
+
+    <!-- Codigo de row Oassenger -->
 
     <br>
-    <div class="container subPassenger">
+    <div class="container">
 
       <div class="row" style="width: 100%;">
 
@@ -161,9 +203,7 @@
           <h4>Passenger</h4>
         </div>
 
-        <div class="col-7 container line">
-          <!-- <input type="text" style="height: 0px; border: 1px solid black;"> -->
-        </div>
+        <div class="col-7 container line"></div>
 
         <div class="col divCaseNumber">
           <button class="caseNumber">
@@ -173,31 +213,67 @@
         </div>
 
       </div>
-    </div>
 
-    <div class="container">
-      <br>
-      <div class="row align-items-center">
+      <!-- Codigo para nombre y numero de empleado -->
+      <!-- <div class="row align-items-center"> -->
+      <div class="row">
 
-        <div class="col divEmpl" style="width: 28%;">
-          <span class="empl-span">EMP</span>
-          <input class="input-empl" type="text" placeholder="Emp">
+        <!-- <div class="col-sm-9"> -->
+
+
+
+        <!-- <div class="col divEmpl"> -->
+        <div class="col" style="background: #F6F7F9;margin-right: 10px">
+          <div class="row">
+            <div class="col-2">
+              <p><strong>EMP</strong></p>
+            </div>
+            <div class="col-5">
+              <input class="input-empl" type="text" placeholder="Emp">
+            </div>
+          </div>
         </div>
-        <div class="col divEmpl" style="width: 28%;">
-          <span class="empl-span">Name</span>
-          <input class="input-empl" type="text" placeholder="Name">
-          <!-- <a href="">User Data</a> -->
-        </div>
-        <!-- <div class="col" style="width: 30%;">
-            <span class="empl-span">EMP</span>
-            <input class="input-empl" type="text" placeholder="Emp">
-          </div> -->
 
+
+        <div class="col" style="background: #F6F7F9;">
+          <div class="row">
+            <div class="col-3">
+              <p><strong> Name</strong></p>
+            </div>
+            <div class="col-5">
+              <input class="input-empl" type="text" placeholder="Name">
+            </div>
+            <div class="col-4">
+              <button class="btnUserData" mat-raised-button (click)="openUserData()">User Data</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="row">
+            <div class="col">
+
+              <img src="../../assets/images/logo_swiftair 2.png" alt="" style="width: 60px;height: 12.78px;">
+            </div>
+            <div class="col">
+              <p><strong>QTYM</strong></p>
+
+            </div>
+            <div class="col">
+              <p><strong>654</strong></p>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- </div> -->
+
+        <!-- </div> -->
       </div>
-    </div>
 
-    <div class="container">
-      <div class="row addNewPassenger ">
+      <!-- <div class="container"> -->
+      <!-- <div class="row addNewPassenger "> -->
+      <div class="row">
         <div class="col">
           <br>
           <button class="addPassenger" style="background-color: #2196F3;;">Add new passenger
@@ -205,6 +281,8 @@
           </button>
         </div>
       </div>
+
+      <!-- </div> -->
 
     </div>
 
@@ -393,8 +471,9 @@
       <br>
     </div>
 
-  </div>
 
+
+  </div>
 
 
   <div class="divChat">
@@ -548,7 +627,8 @@
                 <div class="row" style="width: 100%;height: 32px">
                   <div class="col-5">
                     <mat-error>
-                      <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter your
+                      <span *ngIf="!chatForm.get('message')?.valid && chatForm.get('message')?.touched">Enter
+                        your
                         message</span>
                     </mat-error>
                   </div>
@@ -594,4 +674,5 @@
       <!-- </mat-drawer-content> -->
     </mat-drawer-container>
   </div>
+
 </div>

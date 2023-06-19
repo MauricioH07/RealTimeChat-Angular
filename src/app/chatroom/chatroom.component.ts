@@ -6,18 +6,26 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/database'
 import { DatePipe } from '@angular/common';
 import { FirebaseService } from '../services/firebase.service';
-import { map } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 import { Message } from 'src/app/models/message';
 import { Chat } from 'src/app/models/chat';
 import * as moment from 'moment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { EmojisService } from '../services/emojis.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UserDataComponent } from '../components/user-data/user-data.component';
+
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
+}
+
+export interface DialogData {
+  animal: string;
+  name: string;
 }
 
 export const snapshotToArray = (snapshot: any) => {
@@ -31,6 +39,7 @@ export const snapshotToArray = (snapshot: any) => {
 
   return returnArr;
 };
+
 
 @Component({
   selector: 'app-chatroom',
@@ -49,6 +58,8 @@ export class ChatroomComponent implements OnInit {
   @ViewChild('chatcontent') chatcontent: ElementRef | any;
   @ViewChild('chatPanel') chatPanel: ElementRef | any;
 
+  selectedOptionTime: string = "";
+  selectedOptionStatus: string = "";
   selectedFile: any = File;
   imagePast = false;
   pasteImageSrc: string = '';
@@ -81,6 +92,7 @@ export class ChatroomComponent implements OnInit {
     private fbs: FirebaseService,
     private db: AngularFirestore,
     private elementRef: ElementRef,
+    public dialog: MatDialog,
     ) {
 
     // Cargamos los mensajes viejos al entrar en el chat
@@ -111,6 +123,18 @@ export class ChatroomComponent implements OnInit {
     })
 
 
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(UserDataComponent, {
+      width: '250px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 
 
@@ -439,6 +463,68 @@ export class ChatroomComponent implements OnInit {
     // enviar una señal al servidor para notificar a otros usuarios que has dejado de escribir
   }
 
+  statuSelection(option:string){
+    
+    switch(option){
+      case "red":
+        this.selectedOptionStatus = "../../assets/images/redCircle.png";
+        break;
+      case "yellow":
+        this.selectedOptionStatus = "../../assets/images/yellowCircle.png";
+        break;
+      case "green":
+        this.selectedOptionStatus = "../../assets/images/CircleGreen.png";
+        break;
+      case "white":
+        this.selectedOptionStatus = "../../assets/images/whiteCircle.png";
+        break;
+      case "whiteX":
+        this.selectedOptionStatus = "../../assets/images/whiteCross_circle.png";
+        break;
+      case "redE":
+        this.selectedOptionStatus = "../../assets/images/redE_circle.png";
+        break;
+      case "yellowE":
+        this.selectedOptionStatus = "../../assets/images/yellowE_circle.png";
+        break;
+      case "greenE":
+        this.selectedOptionStatus = "../../assets/images/greenE_Circle.png";
+        break;
+      case "whiteE":
+        this.selectedOptionStatus = "../../assets/images/whiteE_circle.png";
+        break;
+      case "whiteEX":
+        this.selectedOptionStatus = "../../assets/images/whiteE_cross_circle.png";
+        break;
+    }
+
+  }
+
+  timeSelection(option:string){
+
+    switch(option){
+
+      case "time":
+        this.selectedOptionTime = "../../assets/images/timeWhite.png";
+        break;
+      case "timeTravel":
+        this.selectedOptionTime = "../../assets/images/timeTravelWhite.png";
+        break;
+
+    }
+
+  }
+
+  openUserData(){
+    const dialogRef: MatDialogRef<UserDataComponent> = this.dialog.open(UserDataComponent,{
+      width: '800px',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // Aqui podemos hacer alguna accion cuando el modal se cierre
+    })
+  }
 
 
   // Salida de la sala de chat
@@ -474,10 +560,8 @@ export class ChatroomComponent implements OnInit {
 
   //   this.router.navigate(['/roomlist']);
   // }
-
-  backTableHome(){
-    this.router.navigate(['/login']);
-    // this.router.navigate(['localhost:4200/table-home']);
-  }
-
 }
+
+
+
+
