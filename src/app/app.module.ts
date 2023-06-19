@@ -50,6 +50,9 @@ import { TrainComponent } from './components/train/train.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { UserDataComponent } from './components/user-data/user-data.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -72,6 +75,7 @@ import { RouterModule } from '@angular/router';
     CarComponent,
     FligthComponent,
     TrainComponent,
+    UserDataComponent,
 
   ],
   imports: [
@@ -103,7 +107,8 @@ import { RouterModule } from '@angular/router';
     MatTabsModule,
     MatMenuModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    MatDialogModule
 
   ],
   providers: [DatePipe],

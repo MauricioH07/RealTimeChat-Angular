@@ -775,3 +775,31 @@ label{
   width: 38px;
   height: 20px;
 }
+
+.imgMenuStatus{
+  /* margin-left: -3px; */
+  z-index: -1;
+  position: inherit;
+  display: initial;
+}
+
+.spanMenuStatus{
+  position: absolute;
+  display: inline;
+  margin-left: 1px;
+  margin-top: -2px;
+}
+
+::ng-deep .mat-menu-panel {
+  height: 170px;
+    background: #081f4b;
+    z-index: -1;
+    position: relative;
+}
+
+.btnUserData{
+  background: transparent!important;
+  display: contents;
+  color: blue!important;
+  font-size: 10px
+}
